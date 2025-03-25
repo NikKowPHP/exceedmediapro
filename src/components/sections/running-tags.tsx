@@ -54,7 +54,7 @@ export function RunningTags({ services, speed = 50 }: RunningTagsProps) {
         {services.map((service, index) => (
           <span
             key={service.id}
-            className="flex-shrink-0 py-6 text-[24px] font-normal text-sm text-white"
+            className="flex-shrink-0 py-6 text-[24px] font-normal text-white"
             itemProp="itemListElement"
             itemScope 
             itemType="https://schema.org/Service"

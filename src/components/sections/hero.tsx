@@ -3,6 +3,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { MotionButton } from '../ui/motion-button'
+import { IconBadge } from '../ui/icon-badge'
+import { services } from '@/lib/data/services'
+import { RunningTags } from './running-tags'
 
 export const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -56,60 +59,66 @@ export const HeroSection = () => {
       {/* Background layer */}
       <motion.div 
         className="absolute inset-0"
-        style={{
-          scale: useTransform(scrollYProgress, [0, 1], [1, 0.8]),
-          y: useTransform(scrollYProgress, [0, 1], [0, -200]),
-          rotateX: useTransform(scrollYProgress, [0, 1], [0, -5])
-        }}
+        // style={{
+        //   scale: useTransform(scrollYProgress, [0, 1], [1, 0.8]),
+        //   y: useTransform(scrollYProgress, [0, 1], [0, -200]),
+        //   rotateX: useTransform(scrollYProgress, [0, 1], [0, -5])
+        // }}
       />
 
-      <div className='max-w-3xl mx-auto pt-[60px] sm:pt-[20px] relative'>
+      <div className='max-w-4xl mx-auto pt-[60px] sm:pt-[20px] relative'>
         <motion.div 
           className="flex flex-col items-center justify-center gap-[32px]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          style={{ 
-            scale,
-            rotateX,
-            transformStyle: 'preserve-3d'
-          }}
+          // style={{ 
+          //   scale,
+          //   rotateX,
+          //   transformStyle: 'preserve-3d'
+          // }}
         >
+          <IconBadge text="Your Partner in Digital Marketing." />
+
           <motion.h1
-            style={{ 
-              y: yHeading,
-              translateZ: zHeading
-            }}
+            // style={{ 
+            //   y: yHeading,
+            //   translateZ: zHeading
+            // }}
             className="text-[36px] sm:text-[42px] lg:text-[60px] leading-[1.1] font-bold text[#262625] text-center relative z-10"
             itemProp="headline"
             variants={childVariants}
           >
-            Disposable Endoscopic Accessories
+            We make more clients for your business with effective tools from Google, Facebook & Instagram
           </motion.h1>
 
           <motion.h2
-            style={{ 
-              y: ySubheading,
-              translateZ: zSubheading
-            }}
-            className="text-[18px] sm:text-[20px] leading-[1.1] font-bold text-[#0AB2AC] text-center relative z-20"
+            // style={{ 
+            //   y: ySubheading,
+            //   translateZ: zSubheading
+            // }}
+            className="text-[18px] sm:text-lg leading-[1.1] font-bold text-[#0AB2AC] text-center relative z-20"
             itemProp="headline"
             variants={childVariants}
           >
-            Your Trusted Source for Alton&apos;s Sterile Disposable Endoscopic Accessories
+            Internet marketing for e-commerce, b2b, b2c
           </motion.h2>
 
           <motion.div 
             variants={childVariants}
-            style={{ 
-              y: yButton,
-              translateZ: 30
-            }}
-            className="relative z-30"
+            
+            // style={{ 
+            //   y: yButton,
+            //   translateZ: 30
+            // }}
+            className="relative z-30 flex gap-3"
           >
             <MotionButton href="/contact" text="Contact Us" variant="cta" />
+            <MotionButton href="/SeePlans" text="Contact Us" variant="outline" />
            
           </motion.div>
+
+          <RunningTags services={services} />
         </motion.div>
       </div>
       <div className="opacity-0 animate-fadeIn"></div>
