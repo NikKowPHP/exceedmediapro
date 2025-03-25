@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
       itemScope
       itemType="https://schema.org/WebPage"
     >
-      <div className="max-w-7xl mx-auto  px-[20px] sm:px-0">
+      <div className="max-w-7xl mx-auto  px-[25px] sm:px-0">
         <div className="flex flex-col gap-[30px] py-[80px] md:py-[160px]">
           <div className="flex flex-col items-center gap-[30px]">
           <IconBadge
