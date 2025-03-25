@@ -79,26 +79,25 @@ const HowItWorksItemList = ({
 }: {
   howItWorksItems: HowItWorksItemType[];
 }) => {
-  // Determine which items should span full width in the last row
+  // Determine which items should be in 3 columns or 2 columns
   const getColumnSpan = (index: number, totalItems: number) => {
-    // If it's one of the last 2 items and the total is odd, make them span wider
-    const isLastRow = index >= totalItems - 2;
-    return isLastRow && totalItems > 5 ? "md:col-span-2 lg:col-span-1 xl:col-span-2" : "";
+    // First half of items in 3 columns, second half in 2 columns
+    const halfPoint = Math.ceil(totalItems / 2);
+    return index < halfPoint ? "lg:col-span-1" : "lg:col-span-1 xl:col-span-1.5";
   };
-  const itemsLength = howItWorksItems.length;
 
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full justify-center mx-auto"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full justify-center mx-auto"
       role="list"
       aria-label="Development process steps"
     >
       {howItWorksItems.map((item: HowItWorksItemType, index: number) => (
         <div 
           key={index} 
-          className={`${getColumnSpan(index, itemsLength)} ${index >= itemsLength - 2 ? "xl:last:col-span-1" : ""}`}
+          className={`${getColumnSpan(index, howItWorksItems.length)}`}
         >
-          <HowItWorksItem index={index} item={item} key={index} />
+          <HowItWorksItem index={index} item={item} />
         </div>
       ))}
     </div>
