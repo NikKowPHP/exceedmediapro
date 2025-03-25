@@ -1,18 +1,16 @@
-'use client'
+"use client";
 
-import { Navbar } from '@/components/layout/navbar/navbar'
-import { Footer } from '@/components/layout/footer/footer'
+import { Navbar } from "@/components/layout/navbar/navbar";
+import { Footer } from "@/components/layout/footer/footer";
 
 export function ClientWrapper({ children }: { children: React.ReactNode }) {
   return (
-      <div className='bg-white w-full'>
-    <div className='bg-white  relative'>
-
+    <div className="bg-primary w-full">
+      <div className="  relative">
         <Navbar />
-      {children}
+        {children}
         <Footer />
-    </div>
       </div>
-  )
+    </div>
+  );
 }
-
