@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-6 md:top-10 mx-auto px-[18px] py-[10px] max-w-7xl rounded-[8px] left-0 right-0 z-50 border border-red-500",
+        "sticky top-0  md:top-10 mx-auto px-[18px]  md:px-[18px] md:py-[10px] max-w-7xl rounded-[8px] left-0 right-0 z-50 ",
         mobileMenuOpen ? "bg-black" : "bg-[#00000080]"
       )}
       itemScope
@@ -27,18 +27,19 @@ export function Navbar() {
           <div className="flex-1  ">
             <Link
               href="/"
-              className="gap-2 self-start font-bold transition-all duration-300  max-h-[25px] flex items-center w-full flex-1"
+              className="gap-2 self-start font-bold transition-all duration-300   flex items-center w-full flex-1"
               title="Exceed Media Pro"
               aria-label="Exceed Media Pro Homepage"
             >
               <Image
                 src="/logo.png"
                 alt="Exceed Media Pro Logo"
-                width={28}
-                height={28}
-                className="h-auto"
+                width={mobileMenuOpen? 20 : 28}
+                height={mobileMenuOpen ? 20 : 28}
+                className="h-auto transition-all duration-300"
               />
-              <span className="text-white text-logo font-normal">Exceed Media Pro</span>
+              <div className="text-white text-logo font-normal flex flex-col md:flex-row">Exceed Media Pro  <span className="text-white text-sm font-normal md:hidden">Digital Marketing Agency</span></div>
+             
             </Link>
           </div>
 
@@ -76,8 +77,8 @@ export function Navbar() {
             </AnimatePresence>
           </button>
 
-          <div
-            className="sticky top-6 md:top-10  mx-auto   px-[10px]  max-w-full rounded-full left-0 right-0 z-50  text-white "
+          {/* <div
+            className="sticky md:top-10   mx-auto   px-[10px]  max-w-full rounded-full left-0 right-0 z-50  text-white "
             itemScope
             itemType="https://schema.org/WPHeader"
           >
@@ -128,7 +129,7 @@ export function Navbar() {
                 </nav>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex-1 hidden md:flex md:justify-end md:items-center">
             <RequestQuoteButton />
