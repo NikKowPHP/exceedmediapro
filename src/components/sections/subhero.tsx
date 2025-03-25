@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { IconBadge } from "../ui/icon-badge";
 

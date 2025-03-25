@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { SliderItem as SliderType } from "@/domain/models/models";
-import SaferSolutionsSvg from "../svg/safer-solutions.svg";
 import { IconBadge } from "../ui/icon-badge";
 
 export function SliderSectionClient({ items }: { items: SliderType[] }) {
@@ -32,7 +31,6 @@ const ProcessTitleSubtitle = () => {
       <h2 id="process-title" className="flex" itemProp="name">
       
         <IconBadge
-          customIcon={<SaferSolutionsSvg className="w-[20px] h-[20px] text-white  " />}
           text="Safer Solutions"
           bgColor="#014441"
           textColor="white"

@@ -13,7 +13,7 @@ export const ContactSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center md:items-start md:flex-row gap-[20px]">
           <div className="flex flex-col items-start gap-[16px] md:w-full">
-            <IconBadge text="Contact us" bgColor="#014441" lucideIconName="Lightbulb" textColor="white" />
+            <IconBadge text="Contact us" bgColor="#014441" textColor="white" />
 
             <h2 className="text-[22px] md:text-[44px] ">24/7 Available</h2>
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import { MotionButton } from '../ui/motion-button'
 import { IconBadge } from '../ui/icon-badge'
@@ -9,20 +9,20 @@ import { RunningTags } from './running-tags'
 
 export const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  })
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start start", "end start"]
+  // })
   // scroll down makes translateY negative , initial scale is 1 , scroll down scalle smaller a little 
 
   // 3D-like parallax transformations
-  const yHeading = useTransform(scrollYProgress, [0, 1], [0, -200])
-  const ySubheading = useTransform(scrollYProgress, [0, 1], [0, -150])
-  const yButton = useTransform(scrollYProgress, [0, 1], [0, -100])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9])
-  const rotateX = useTransform(scrollYProgress, [0, 1], [0, -5])
-  const zHeading = useTransform(scrollYProgress, [0, 1], [0, 50])
-  const zSubheading = useTransform(scrollYProgress, [0, 1], [0, 30])
+  // const yHeading = useTransform(scrollYProgress, [0, 1], [0, -200])
+  // const ySubheading = useTransform(scrollYProgress, [0, 1], [0, -150])
+  // const yButton = useTransform(scrollYProgress, [0, 1], [0, -100])
+  // const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9])
+  // const rotateX = useTransform(scrollYProgress, [0, 1], [0, -5])
+  // const zHeading = useTransform(scrollYProgress, [0, 1], [0, 50])
+  // const zSubheading = useTransform(scrollYProgress, [0, 1], [0, 30])
 
   // Initial entrance animations
   const containerVariants = {
