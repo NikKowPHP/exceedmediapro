@@ -1,13 +1,8 @@
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import {
   HeroSection,
-  QuoteSection,
-  ProductSection,
   SubHeroSection,
-  SliderSection,
   ServicesSection,
-  FaqSection,
-  CtaSection,
   HowItWorksSection,
   WhyUsSection,
 } from "@/helpers/componentsLoad";
