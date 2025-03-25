@@ -8,13 +8,17 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { MotionButton } from "@/components/ui/motion-button";
 import { MotionLink } from "@/components/ui/motion-link";
+import { cn } from '@/lib/utils/cn'
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header
-      className="sticky top-6 md:top-10  mx-auto   px-[18px] py-[10px] max-w-7xl rounded-[8px] left-0 right-0 z-50 bg-[#00000080]   border border-red-500"
+      className={cn(
+        "sticky top-6 md:top-10 mx-auto px-[18px] py-[10px] max-w-7xl rounded-[8px] left-0 right-0 z-50 border border-red-500",
+        mobileMenuOpen ? "bg-black" : "bg-[#00000080]"
+      )}
       itemScope
       itemType="https://schema.org/WPHeader"
     >
