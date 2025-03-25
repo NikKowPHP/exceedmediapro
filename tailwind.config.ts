@@ -10,33 +10,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0066FF',
-        secondary: '#F7F7F7',
+        primary: '#000',
+        secondary: '#fff',
+        action: '#5371ff',
 
         text: {
-          title: '#0F1012',
-          subtitle: '#A5ABB0',
-          secondary: '#0171E2',
+          title: '#fff',
+          subtitle: '#ffffffcc',
+          primary: '#fff',
           tertiary: '#999999',
           black: '#000000'
           
         },
         borderColor: {
-          primary: '#0171E3'
+          primary: '#ffffff1a',
+          secondary: '#000'
         }
       },
       fontFamily: {
-        sans: ['SF Pro Display' ],
+        sans: ['Outfit' ],
       },
       fontSize: {
         'xs': '12px',
         'sm': '14px',
         'base': '16px',
         'lg': '18px',
-        'xl': '20px',
+        'logo': '20px',
+        'xl': '50px',
         '2xl': '24px',
         '3xl': '30px',
-        '4xl': '36px',
       },
       spacing: {
         '4': '4px',
@@ -48,8 +50,8 @@ const config: Config = {
         '64': '64px',
       },
       borderRadius: {
-        'primary': '24px',
-        'primary-lg': '32px',
+        'primary': '10px',
+        'primary-sm': '8px',
       }
     },
   },
