@@ -31,10 +31,10 @@ const HowItWorksTitleSubtitle = () => {
       <div className="flex flex-center pb-[25px]">
         <IconBadge text="Services" />
       </div>
-      <h2 className="text-xl font-normal " itemProp="name">
+      <h2 className="text-[28px] md:text-xl font-normal " itemProp="name">
         How it works?
       </h2>
-      <h3 className="text-base  ">
+      <h3 className="text-base text-center ">
         Tailored solutions to streamline, innovate, and grow.
       </h3>
     </header>
@@ -56,9 +56,9 @@ const HowItWorksItem = ({
       itemType="https://schema.org/HowToStep"
     >
       <meta itemProp="position" content={`${index + 1}`} />
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-[10px]">
         <h3
-          className="text-lg md:text-2xl font-bold text-text-primary mb-2"
+          className=" text-[22px] md:text-2xl  text-text-primary mb-2"
           itemProp="name"
         >
           {item.title}
