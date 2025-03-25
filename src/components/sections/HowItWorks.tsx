@@ -96,7 +96,7 @@ const HowItWorksItemList = ({
         result.push(
           <div
             key={`row-${i}`}
-            className="grid grid-cols-1  md:grid-cols-2 lg:hidden gap-4 w-full"
+            className="grid grid-cols-1  md:grid-cols-2 lg:hidden w-full gap-[15px]"
           >
             {twoCardRow.map((item, idx) => (
               <div key={i + idx}>
@@ -162,7 +162,7 @@ const HowItWorksItemList = ({
       )}
 
       {/* Mobile view (xs-sm): All items in 1 column */}
-      <div className="grid grid-cols-1 gap-4 w-full md:hidden">
+      <div className="grid grid-cols-1 gap-4 w-full md:hidden gap-[15px]">
         {howItWorksItems.map((item: HowItWorksItemType, index: number) => (
           <div key={`mobile-${index}`}>
             <HowItWorksItem index={index} item={item} />
