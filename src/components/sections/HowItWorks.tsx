@@ -27,12 +27,14 @@ export const HowItWorksSection = () => {
 
 const HowItWorksTitleSubtitle = () => {
   return (
-    <header className="mb-[42px] gap-[32px] md:gap-[12px] flex flex-col flex-start border border-red-500">
-      <IconBadge text="Services" />
-      <h2 className="text-xl font-normal border border-red-500" itemProp="name">
-        How it works
+    <header className="mb-[60px] gap-[10px] md:gap-[12px] flex flex-col flex-center items-center">
+      <div className="flex flex-center pb-[25px]">
+        <IconBadge text="Services" />
+      </div>
+      <h2 className="text-xl font-normal " itemProp="name">
+        How it works?
       </h2>
-      <h3 className="text-[24px] md:text-[44px] border border-red-500">
+      <h3 className="text-base  ">
         Tailored solutions to streamline, innovate, and grow.
       </h3>
     </header>
@@ -48,15 +50,15 @@ const HowItWorksItem = ({
 }) => {
   return (
     <div
-      className="py-[20px] px-[30px] flex flex-col h-full bg-card rounded-primary border border-borderColor-primary border-red-500  "
+      className="py-[20px] px-[30px] flex flex-col h-full bg-card rounded-primary border border-borderColor-primary "
       itemProp="step"
       itemScope
       itemType="https://schema.org/HowToStep"
     >
       <meta itemProp="position" content={`${index + 1}`} />
       <div className="flex flex-col">
-        <h3 
-          className="text-lg md:text-2xl font-bold text-text-primary mb-2" 
+        <h3
+          className="text-lg md:text-2xl font-bold text-text-primary mb-2"
           itemProp="name"
         >
           {item.title}
@@ -83,18 +85,17 @@ const HowItWorksItemList = ({
   const firstSixItems = howItWorksItems.slice(0, 6);
   const remainingItems = howItWorksItems.slice(6);
 
-
   // Render the tablet view (repeating pattern of 2 cards then 1 card)
   const renderTabletView = () => {
     const result = [];
-    
+
     for (let i = 0; i < howItWorksItems.length; i += 3) {
       // Add a row with up to 2 cards
       const twoCardRow = howItWorksItems.slice(i, i + 2);
       if (twoCardRow.length > 0) {
         result.push(
-          <div 
-            key={`row-${i}`} 
+          <div
+            key={`row-${i}`}
             className="grid grid-cols-1  md:grid-cols-2 lg:hidden gap-4 w-full"
           >
             {twoCardRow.map((item, idx) => (
@@ -105,13 +106,13 @@ const HowItWorksItemList = ({
           </div>
         );
       }
-      
+
       // Add a row with 1 card (if available)
       const oneCard = howItWorksItems[i + 2];
       if (oneCard) {
         result.push(
-          <div 
-            key={`single-${i + 2}`} 
+          <div
+            key={`single-${i + 2}`}
             className="grid grid-cols-1 lg:hidden gap-4 w-full  md:mx-auto"
           >
             <div>
@@ -121,21 +122,20 @@ const HowItWorksItemList = ({
         );
       }
     }
-    
+
     return result;
   };
 
-
   return (
-    <div className="space-y-4">
+    <div className="space-y-[15px]">
       {/* Tablet view with repeating pattern */}
-      <div className="md:block lg:hidden space-y-4">
+      <div className="md:block lg:hidden space-y-[15px]">
         {renderTabletView()}
       </div>
-      
+
       {/* Desktop view (lg+): First 6 items in 3 columns */}
       <div
-        className="hidden lg:grid grid-cols-3 gap-4 w-full"
+        className="hidden lg:grid grid-cols-3 gap-[15px] w-full"
         role="list"
         aria-label="Development process steps"
       >
@@ -149,7 +149,7 @@ const HowItWorksItemList = ({
       {/* Desktop view (lg+): Remaining items in 2 columns */}
       {remainingItems.length > 0 && (
         <div
-          className="hidden lg:grid grid-cols-2 gap-4 w-full" 
+          className="hidden lg:grid grid-cols-2 gap-[15px] w-full"
           role="list"
           aria-label="Additional development process steps"
         >

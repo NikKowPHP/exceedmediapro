@@ -12,7 +12,7 @@ type IconBadgeProps = {
 
 export function IconBadge({
   text,
-  bgColor = '#014441',
+  bgColor = '#0d0d0d',
   textColor = 'white',
   className = '',
   iconSize = 15
@@ -22,7 +22,7 @@ export function IconBadge({
 
   return (
     <div 
-      className={`flex items-center justify-center bg-primary rounded-primary-sm gap-[5px] pl-[15px] pr-[20px] py-[8px] ${className}`}
+      className={`flex items-center justify-center border border-gray-800 rounded-primary-sm gap-[5px] pl-[15px] pr-[20px] py-[8px] ${className}`}
       style={{ backgroundColor: bgColor }}
     >
 
