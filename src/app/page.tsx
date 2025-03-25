@@ -15,7 +15,7 @@ export default async function HomePage() {
   return (
     <>
       <div
-        className="relative overflow-hidden min-h-screen bg-white"
+        className="relative overflow-hidden min-h-screen bg-primary"
         itemScope
         itemType="https://schema.org/WebPage"
       >
