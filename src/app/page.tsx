@@ -9,6 +9,7 @@ import {
   FaqSection,
   CtaSection,
   HowItWorksSection,
+  WhyUsSection,
 } from "@/helpers/componentsLoad";
 import { companyConfig } from "@/config/company";
 
@@ -25,10 +26,11 @@ export default async function HomePage() {
         <SubHeroSection />
         <ServicesSection />
         <HowItWorksSection />
+        <WhyUsSection />
 
         {/* Deferred Content */}
         <div className="relative">
-          <Suspense fallback={<div className="min-h-[400px]"></div>}>
+          {/* <Suspense fallback={<div className="min-h-[400px]"></div>}>
             <QuoteSection />
           </Suspense>
           <Suspense fallback={<div className="min-h-[300px]" />}>
@@ -42,7 +44,7 @@ export default async function HomePage() {
           </Suspense>
           <Suspense fallback={<div className="min-h-[700px]" />}>
             <CtaSection />
-          </Suspense>
+          </Suspense> */}
           {/* <Suspense fallback={<div className="min-h-[400px]">Loading video...</div>}>
             <div>
               <YoutubeSection />

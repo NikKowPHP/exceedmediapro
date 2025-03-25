@@ -1,12 +1,9 @@
 import { Suspense } from "react";
-import {
-  getWhyUsItems,
-  WhyUsItem as WhyUsItemType,
-} from "@/lib/data/data";
+import { getWhyUsItems, WhyUsItem as WhyUsItemType } from "@/lib/data/data";
 import { LucideIcons } from "@/lib/data/data";
 import { IconBadge } from "../ui/icon-badge";
 
-export const WhyUsSection =  () => {
+export const WhyUsSection = () => {
   const whyUsItems = getWhyUsItems();
 
   return (
@@ -40,30 +37,19 @@ export const WhyUsSection =  () => {
 
 const WhyUsTitleSubtitle = () => {
   return (
-    <header className="mb-[42px] gap-[32px] md:gap-[12px] flex flex-col flex-start">
-      <h2 id="process-title" className="flex" itemProp="name">
-        <IconBadge
-          text="Why Us"
-          bgColor="#014441"
-          textColor="white"
-        />
+    <header className="mb-[42px] gap-[32px] md:gap-[12px] flex flex-col flex-center items-center">
+      <div className="flex flex-center items-center">
+        <IconBadge text="Benefits" textColor="white" />
+      </div>
+      <h2 id="process-title" className="text-[28px] md:text-[44px]" itemProp="name">
+        Why Choose Us?
       </h2>
-      <h3 className="text-[24px] md:text-[44px] ">Achieve Better Outcomes in Endoscopy</h3>
-      <p className="text-[18px] md:text-[20px]">
-        Discover the advantages of single-use instruments for enhanced safety
-        and efficiency.
-      </p>
+   
     </header>
   );
 };
 
-const WhyUsItem = ({
-  index,
-  item,
-}: {
-  index: number;
-  item: WhyUsItemType;
-}) => {
+const WhyUsItem = ({ index, item }: { index: number; item: WhyUsItemType }) => {
   const Icon = LucideIcons[item.icon];
   return (
     <div
@@ -96,11 +82,7 @@ const WhyUsItem = ({
   );
 };
 
-const WhyUsItemList = ({
-  whyUsItems,
-}: {
-  whyUsItems: WhyUsItemType[];
-}) => {
+const WhyUsItemList = ({ whyUsItems }: { whyUsItems: WhyUsItemType[] }) => {
   return (
     <div
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-[32px] sm:gap-y-0 sm:gap-x-[32px] w-full justify-center mx-auto"

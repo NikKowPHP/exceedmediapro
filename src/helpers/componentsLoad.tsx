@@ -90,3 +90,10 @@ export const ContactSection = dynamic(
     ssr: true,
   }
 )
+
+export const WhyUsSection = dynamic(
+  () => import('@/components/sections/why_us-section').then(mod => mod.WhyUsSection),
+  {
+    ssr: true,
+  }
+)
