@@ -79,27 +79,39 @@ const HowItWorksItemList = ({
 }: {
   howItWorksItems: HowItWorksItemType[];
 }) => {
-  // Determine which items should be in 3 columns or 2 columns
-  const getColumnSpan = (index: number, totalItems: number) => {
-    // First half of items in 3 columns, second half in 2 columns
-    const halfPoint = Math.ceil(totalItems / 2);
-    return index < halfPoint ? "lg:col-span-1" : "lg:col-span-1 xl:col-span-1.5";
-  };
+  // Split items into two groups - first 6 in 3 columns, rest in 2 columns
+  const firstSixItems = howItWorksItems.slice(0, 6);
+  const remainingItems = howItWorksItems.slice(6);
 
   return (
-    <div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full justify-center mx-auto"
-      role="list"
-      aria-label="Development process steps"
-    >
-      {howItWorksItems.map((item: HowItWorksItemType, index: number) => (
-        <div 
-          key={index} 
-          className={`${getColumnSpan(index, howItWorksItems.length)}`}
+    <div className="space-y-4">
+      {/* First 6 items in 3 columns */}
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full"
+        role="list"
+        aria-label="Development process steps"
+      >
+        {firstSixItems.map((item: HowItWorksItemType, index: number) => (
+          <div key={index}>
+            <HowItWorksItem index={index} item={item} />
+          </div>
+        ))}
+      </div>
+
+      {/* Remaining items in 2 columns */}
+      {remainingItems.length > 0 && (
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full" 
+          role="list"
+          aria-label="Additional development process steps"
         >
-          <HowItWorksItem index={index} item={item} />
+          {remainingItems.map((item: HowItWorksItemType, index: number) => (
+            <div key={index + 6}>
+              <HowItWorksItem index={index + 6} item={item} />
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 };
