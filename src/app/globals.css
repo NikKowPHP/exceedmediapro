@@ -8,9 +8,6 @@
   --background: #000;
   --foreground: #fff;
 }
-body {
-  background-color: #000;
-}
 
 html {
   font-family: 'Outfit', sans-serif;

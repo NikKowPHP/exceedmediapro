@@ -7,7 +7,7 @@ import {
   SliderSection,
   BetterOutcomesSection,
   FaqSection,
-  CtaSection
+  CtaSection,
 } from "@/helpers/componentsLoad";
 import { companyConfig } from "@/config/company";
 
@@ -34,13 +34,13 @@ export default async function HomePage() {
           <Suspense fallback={<div className="min-h-[700px]" />}>
             <SliderSection />
           </Suspense>
-          <Suspense fallback={<div className="min-h-[700px]" />}> 
+          <Suspense fallback={<div className="min-h-[700px]" />}>
             <BetterOutcomesSection />
           </Suspense>
-          <Suspense fallback={<div className="min-h-[700px]" />}> 
+          <Suspense fallback={<div className="min-h-[700px]" />}>
             <FaqSection />
           </Suspense>
-          <Suspense fallback={<div className="min-h-[700px]" />}> 
+          <Suspense fallback={<div className="min-h-[700px]" />}>
             <CtaSection />
           </Suspense>
           {/* <Suspense fallback={<div className="min-h-[400px]">Loading video...</div>}>

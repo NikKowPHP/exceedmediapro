@@ -1,29 +1,27 @@
-import '@/app/globals.css'
-import { ClientWrapper } from './client-wrapper'
-import { siteUrl } from '@/config/constants';
-import { SmoothScroll } from '@/components/smooth-scroll';
+import "@/app/globals.css";
+import { ClientWrapper } from "./client-wrapper";
+import { siteUrl } from "@/config/constants";
+import { SmoothScroll } from "@/components/smooth-scroll";
 interface LocaleLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-
-export default async function LocaleLayout({
-  children,
-}: LocaleLayoutProps) {
-
-
-
-
- 
+export default async function LocaleLayout({ children }: LocaleLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
         <link rel="canonical" href={siteUrl} />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
 
-        
         {/* Google Analytics Script */}
         {/* <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -42,12 +40,12 @@ export default async function LocaleLayout({
         </Script> */}
       </head>
       <body suppressHydrationWarning>
-            <ClientWrapper>
-              <SmoothScroll>
-                <main className="relative">{children}</main>
-              </SmoothScroll>
-              </ClientWrapper>
+        <ClientWrapper>
+          <SmoothScroll>
+            <main className="relative">{children}</main>
+          </SmoothScroll>
+        </ClientWrapper>
       </body>
     </html>
-  )
+  );
 }
