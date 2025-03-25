@@ -1,3 +1,5 @@
+"use client";
+
 import {
   getProcessItems,
   ProcessItem as ProcessItemType,

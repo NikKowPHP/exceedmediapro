@@ -5,9 +5,10 @@ import {
   ProductSection,
   SubHeroSection,
   SliderSection,
-  BetterOutcomesSection,
+  ServicesSection,
   FaqSection,
   CtaSection,
+  HowItWorksSection,
 } from "@/helpers/componentsLoad";
 import { companyConfig } from "@/config/company";
 
@@ -22,7 +23,8 @@ export default async function HomePage() {
         {/* Priority Content for LCP */}
         <HeroSection />
         <SubHeroSection />
-            <BetterOutcomesSection />
+        <ServicesSection />
+        <HowItWorksSection />
 
         {/* Deferred Content */}
         <div className="relative">

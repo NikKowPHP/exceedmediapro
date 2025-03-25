@@ -16,7 +16,7 @@ const config: Config = {
         card: '#ffffff0f',
 
         text: {
-          title: '#fff',
+        
           subtitle: '#ffffffcc',
           primary: '#fff',
           tertiary: '#999999',

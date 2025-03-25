@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer/footer";
 
 export function ClientWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-primary w-full">
+    <div className="bg-primary text-white w-full">
       <div className="  relative">
         <Navbar />
         {children}

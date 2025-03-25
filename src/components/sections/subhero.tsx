@@ -20,7 +20,7 @@ export function SubHeroSection() {
       itemScope
       itemType="https://schema.org/WebPageElement"
     >
-      <div className="max-w-3xl mx-auto relative h-[400px] overflow-hidden sm:h-[800px] ">
+      <div className=" max-w-6xl mx-auto relative h-[400px] overflow-hidden sm:h-[800px] ">
         <motion.div 
           style={{ 
             y: shouldReduceMotion ? 0 : y,
@@ -36,7 +36,7 @@ export function SubHeroSection() {
           }}
         >
           <IconBadge text="Our Mission" />
-          <h1 className="text-title">Our mission is to provide advanced and effective promotion strategies to help your business thrive in the digital space.</h1>
+          <h1 className="text-xl text-white">Our mission is to provide advanced and effective promotion strategies to help your business thrive in the digital space.</h1>
         </motion.div>
       </div>
       <div className="opacity-0 animate-fadeIn"></div>

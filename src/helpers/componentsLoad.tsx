@@ -20,10 +20,20 @@ export const SliderSection = dynamic(
   }
 )
 
-export const BetterOutcomesSection = dynamic(
+export const ServicesSection= dynamic(
   () =>
     import('@/components/sections/Services').then(
-      (mod) => mod.BetterOutcomesSection
+      (mod) => mod.ServicesSection
+    ),
+  {
+    ssr: true,
+  }
+)
+
+export const HowItWorksSection = dynamic(
+  () =>
+    import('@/components/sections/HowItWorks').then(
+      (mod) => mod.HowItWorksSection
     ),
   {
     ssr: true,
