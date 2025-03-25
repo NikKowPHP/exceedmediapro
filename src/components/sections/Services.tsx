@@ -3,7 +3,7 @@
 import {
   getProcessItems,
   ProcessItem as ProcessItemType,
-} from "@/lib/data/better_outcome-data";
+} from "@/lib/data/data";
 import { IconBadge } from "../ui/icon-badge";
 import Image from "next/image";
 

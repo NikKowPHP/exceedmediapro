@@ -1,3 +1,4 @@
+import { Flag, Newspaper, Star } from "lucide-react"
 
 export interface ProcessItem {
     id: string
@@ -5,6 +6,18 @@ export interface ProcessItem {
     content: string
     image_url: string
   }
+  export interface WhyUsItem {
+    id: string
+    title: string
+    content: string
+    icon: keyof typeof LucideIcons;
+  }
+  export const LucideIcons = {
+    Newspaper: Newspaper,
+    Star: Star,
+    Flag: Flag,
+  };
+  
    export const processItems: ProcessItem[] = [
 
     {
@@ -46,6 +59,38 @@ export interface ProcessItem {
     
   ]
   
+
+
+
+
+
+
+  export const whyUsItems: WhyUsItem[] = [
+
+    {
+        id: 'items.item1',
+        title: 'Ready to Use',
+        content: 'Eliminates downtime waiting for autoclaving. Instruments are available immediately when you need them. Streamline procedures and optimize your schedule.',
+        icon: 'Newspaper'
+      },
+      {
+        id: 'items.item2',
+        title: 'Consistent Quality',
+        content: 'Ensures that the quality and properties of the equipment are not compromised by repeated use. Precise performance with every procedure.',
+        icon: 'Star'
+      },
+      {
+        id: 'items.item3',
+        title: 'Comprehensive Range',
+        content: '	Biopsy Products •	ERCP Instruments •	EMR Instruments •	ESD Instruments •	Grasping Forceps •	Hemoclips •	Retrieval Baskets •	Other Products',
+        icon: 'Flag'
+      },
+    
+  ]
+  
+  export  function getWhyUsItems():   WhyUsItem[] {
+    return whyUsItems
+  }
   export  function getProcessItems(): ProcessItem[] {
     return processItems
   }
