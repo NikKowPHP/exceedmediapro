@@ -69,20 +69,20 @@ export interface ProcessItem {
 
     {
         id: 'items.item1',
-        title: 'Ready to Use',
-        content: 'Eliminates downtime waiting for autoclaving. Instruments are available immediately when you need them. Streamline procedures and optimize your schedule.',
+        title: 'Focus on Real Sales',
+        content: 'We prioritize increasing real sales and attracting a highly interested audience.',
         icon: 'Newspaper'
       },
       {
         id: 'items.item2',
-        title: 'Consistent Quality',
-        content: 'Ensures that the quality and properties of the equipment are not compromised by repeated use. Precise performance with every procedure.',
+        title: 'Weekly Reports',
+        content: 'Receive detailed reports on results and budget usage every week.',
         icon: 'Star'
       },
       {
         id: 'items.item3',
-        title: 'Comprehensive Range',
-        content: '	Biopsy Products •	ERCP Instruments •	EMR Instruments •	ESD Instruments •	Grasping Forceps •	Hemoclips •	Retrieval Baskets •	Other Products',
+        title: 'Officially Registered Agency',
+        content: 'We provide invoices for all services.',
         icon: 'Flag'
       },
     
