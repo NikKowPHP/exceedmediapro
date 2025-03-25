@@ -142,10 +142,10 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute left-0 right-0 top-full bg-white md:hidden"
+            className="absolute left-0 right-0 top-full bg-primary md:hidden"
             aria-label="Mobile navigation"
           >
-            <ul className="flex flex-col p-4 gap-[16px] justify-center items-center pb-[24px]">
+            <ul className="flex flex-col p-4 gap-[16px] justify-center items-start pb-[24px] px-[10px]">
               {navigationConfig.mainNav.map((item) => (
                 <li key={item.title} aria-label={item.title}>
                   <MotionLink
@@ -180,8 +180,10 @@ export function Navbar() {
                   </MotionLink>
                 </li>
               ))}
-              <li key="request-a-quote">
-                <RequestQuoteButton />
+              <li key="request-a-quote" className="w-full self-center ">
+                <div className="w-full ">
+                  <RequestQuoteButton />
+                </div>
               </li>
             </ul>
           </motion.nav>
@@ -192,5 +194,5 @@ export function Navbar() {
 }
 
 export function RequestQuoteButton() {
-  return <MotionButton href="/contact" text="Request a Quote" variant="cta" />;
+  return <MotionButton href="/contact" text="Free Consultation" variant="cta" className="w-full text-center justify-center" />;
 }
