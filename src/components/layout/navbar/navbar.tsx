@@ -23,17 +23,18 @@ export function Navbar() {
           <div className="flex-1  ">
             <Link
               href="/"
-              className="gap-2 self-start font-bold transition-all duration-300 max-w-[50px] max-h-[25px]"
-              title="Rose Medical"
-              aria-label="Rose Medical Homepage"
+              className="gap-2 self-start font-bold transition-all duration-300  max-h-[25px] flex items-center w-full flex-1"
+              title="Exceed Media Pro"
+              aria-label="Exceed Media Pro Homepage"
             >
               <Image
                 src="/logo.png"
-                alt="Rose Medical Logo"
+                alt="Exceed Media Pro Logo"
                 width={28}
                 height={28}
                 className="h-auto"
               />
+              <span className="text-white text-logo font-normal">Exceed Media Pro</span>
             </Link>
           </div>
 
@@ -72,7 +73,7 @@ export function Navbar() {
           </button>
 
           <div
-            className="sticky top-6 md:top-10  mx-auto   px-[10px]  max-w-full rounded-full left-0 right-0 z-50 bg-[#F7F7F7] bg-opacity-80 backdrop-blur-sm "
+            className="sticky top-6 md:top-10  mx-auto   px-[10px]  max-w-full rounded-full left-0 right-0 z-50  text-white "
             itemScope
             itemType="https://schema.org/WPHeader"
           >
@@ -191,7 +192,5 @@ export function Navbar() {
 }
 
 export function RequestQuoteButton() {
-  return (
-    <MotionButton href="/contact" text="Request a Quote" variant="outline" />
-  );
+  return <MotionButton href="/contact" text="Request a Quote" variant="cta" />;
 }

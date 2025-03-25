@@ -19,12 +19,13 @@ const config: Config = {
           subtitle: '#ffffffcc',
           primary: '#fff',
           tertiary: '#999999',
-          black: '#000000'
-          
+          black: '#000000',
+          cta: '#fff'
         },
         borderColor: {
           primary: '#ffffff1a',
-          secondary: '#000'
+          secondary: '#000',
+          cta: '#0000001a'
         }
       },
       fontFamily: {
@@ -33,6 +34,7 @@ const config: Config = {
       fontSize: {
         'xs': '12px',
         'sm': '14px',
+        'cta': '15px',
         'base': '16px',
         'lg': '18px',
         'logo': '20px',
