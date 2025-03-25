@@ -79,15 +79,63 @@ const HowItWorksItemList = ({
 }: {
   howItWorksItems: HowItWorksItemType[];
 }) => {
-  // Split items into two groups - first 6 in 3 columns, rest in 2 columns
+  // width > lg Split items into two groups - first 6 in 3 columns, rest in 2 columns
   const firstSixItems = howItWorksItems.slice(0, 6);
   const remainingItems = howItWorksItems.slice(6);
 
+
+  // Render the tablet view (repeating pattern of 2 cards then 1 card)
+  const renderTabletView = () => {
+    const result = [];
+    
+    for (let i = 0; i < howItWorksItems.length; i += 3) {
+      // Add a row with up to 2 cards
+      const twoCardRow = howItWorksItems.slice(i, i + 2);
+      if (twoCardRow.length > 0) {
+        result.push(
+          <div 
+            key={`row-${i}`} 
+            className="grid grid-cols-1  md:grid-cols-2 lg:hidden gap-4 w-full"
+          >
+            {twoCardRow.map((item, idx) => (
+              <div key={i + idx}>
+                <HowItWorksItem index={i + idx} item={item} />
+              </div>
+            ))}
+          </div>
+        );
+      }
+      
+      // Add a row with 1 card (if available)
+      const oneCard = howItWorksItems[i + 2];
+      if (oneCard) {
+        result.push(
+          <div 
+            key={`single-${i + 2}`} 
+            className="grid grid-cols-1 lg:hidden gap-4 w-full  md:mx-auto"
+          >
+            <div>
+              <HowItWorksItem index={i + 2} item={oneCard} />
+            </div>
+          </div>
+        );
+      }
+    }
+    
+    return result;
+  };
+
+
   return (
     <div className="space-y-4">
-      {/* First 6 items in 3 columns */}
+      {/* Tablet view with repeating pattern */}
+      <div className="md:block lg:hidden space-y-4">
+        {renderTabletView()}
+      </div>
+      
+      {/* Desktop view (lg+): First 6 items in 3 columns */}
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full"
+        className="hidden lg:grid grid-cols-3 gap-4 w-full"
         role="list"
         aria-label="Development process steps"
       >
@@ -98,10 +146,10 @@ const HowItWorksItemList = ({
         ))}
       </div>
 
-      {/* Remaining items in 2 columns */}
+      {/* Desktop view (lg+): Remaining items in 2 columns */}
       {remainingItems.length > 0 && (
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full" 
+          className="hidden lg:grid grid-cols-2 gap-4 w-full" 
           role="list"
           aria-label="Additional development process steps"
         >
@@ -112,6 +160,15 @@ const HowItWorksItemList = ({
           ))}
         </div>
       )}
+
+      {/* Mobile view (xs-sm): All items in 1 column */}
+      <div className="grid grid-cols-1 gap-4 w-full md:hidden">
+        {howItWorksItems.map((item: HowItWorksItemType, index: number) => (
+          <div key={`mobile-${index}`}>
+            <HowItWorksItem index={index} item={item} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
