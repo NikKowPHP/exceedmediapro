@@ -22,7 +22,7 @@ export const SliderSection = dynamic(
 
 export const BetterOutcomesSection = dynamic(
   () =>
-    import('@/components/sections/better_outcomes-section').then(
+    import('@/components/sections/Services').then(
       (mod) => mod.BetterOutcomesSection
     ),
   {

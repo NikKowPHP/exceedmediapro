@@ -1,52 +1,49 @@
-import { Suspense } from "react";
 import {
-  getProcessItems,
-  ProcessItem as ProcessItemType,
-} from "@/lib/data/better_outcome-data";
-import { LucideIcons } from "@/lib/data/better_outcome-data";
+  getHowItWorksItems,
+  HowItWorksItem as HowItWorksItemType,
+} from "@/lib/data/page-data";
 import { IconBadge } from "../ui/icon-badge";
 
-export const BetterOutcomesSection = () => {
-  const processItems = getProcessItems();
+export const HowItWorksSection = () => {
+  const howItWorksItems = getHowItWorksItems();
 
   return (
     <section
-      id="better-outcomes"
+      id="services"
       className="pb-[80px] md:pb-[160px] border border-red-500 "
       itemScope
       itemType="https://schema.org/HowTo"
       aria-labelledby="process-title"
     >
       <div className="max-w-7xl mx-auto  px-[20px] sm:px-0">
-        <ProcessTitleSubtitle />
-        <ProcessItemList processItems={processItems} />
+        <HowItWorksTitleSubtitle />
+        <HowItWorksItemList howItWorksItems={howItWorksItems} />
       </div>
     </section>
   );
 };
 
-const ProcessTitleSubtitle = () => {
+const HowItWorksTitleSubtitle = () => {
   return (
     <header className="mb-[42px] gap-[32px] md:gap-[12px] flex flex-col flex-start">
       <IconBadge text="Services" />
-      <h2  className="text-xl font-bold" itemProp="name">
-        Innovative services for growth
+      <h2 className="text-xl font-bold" itemProp="name">
+        How it works
       </h2>
       <h3 className="text-[24px] md:text-[44px] ">
-        Achieve Better Outcomes in Endoscopy
+        Tailored solutions to streamline, innovate, and grow.
       </h3>
     </header>
   );
 };
 
-const ProcessItem = ({
+const HowItWorksItem = ({
   index,
   item,
 }: {
   index: number;
-  item: ProcessItemType;
+  item: HowItWorksItemType;
 }) => {
-  const Icon = LucideIcons[item.icon];
   return (
     <div
       className="p-[25px]  flex flex-col md:flex-row gap-[60px] md:gap-[32px] leading-[1.6]  bg-card rounded-3xl border border-red-500"
@@ -56,10 +53,6 @@ const ProcessItem = ({
     >
       <meta itemProp="position" content={`${index + 1}`} />
       <div className="flex flex-col gap-[80px]">
-        <div className="rounded-full border border-black text-black flex items-center justify-center w-[48px] h-[48px]">
-          <Icon className="w-[24px] h-[24px]" />
-        </div>
-
         <div className="flex flex-col gap-[16px]">
           <h3 className="text-[20px] md:text-[28px] font-bold " itemProp="name">
             {item.title}
@@ -78,20 +71,20 @@ const ProcessItem = ({
   );
 };
 
-const ProcessItemList = ({
-  processItems,
+const HowItWorksItemList = ({
+  howItWorksItems,
 }: {
-  processItems: ProcessItemType[];
+  howItWorksItems: HowItWorksItemType[];
 }) => {
-  const items = processItems;
+  const items = howItWorksItems;
   return (
     <div
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-[15px] sm:gap-y-0 sm:gap-x-[15px] w-full justify-center mx-auto"
       role="list"
       aria-label="Development process steps"
     >
-      {items.map((item: ProcessItemType, index: number) => (
-        <ProcessItem index={index} item={item} key={index} />
+      {items.map((item: HowItWorksItemType, index: number) => (
+        <HowItWorksItem index={index} item={item} key={index} />
       ))}
     </div>
   );
