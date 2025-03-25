@@ -24,7 +24,7 @@ export function MotionButton({
   // Base variants for styling
   const variants = {
     cta: "text-white text-cta bg-action rounded-primary-sm pl-[20px]  pr-[10px] py-[10px] ",
-    outline: "text-[#014441] text-cta bg-white border border-[#C3C4C5] rounded-full pl-[20px] pr-[10px] py-[15px]",
+    outline: "text-white text-cta bg-transparent border  border-gray-700 rounded-primary px-[10px] py-[8px]",
     ghost: "text-[#575757] text-[16px] bg-transparent rounded-full pl-[20px] pr-[10px] py-[15px]",
     black: "text-white text-[16px] bg-black rounded-full pl-[20px] pr-[10px] py-[15px] hover:border-gray-500",
     ctaBlack: "text-white text-[16px] bg-[#262625] rounded-full pl-[20px] pr-[10px] py-[10px] hover:border-gray-500"

@@ -50,7 +50,7 @@ export const HeroSection = () => {
 
   return (
     <section
-      className="px-5 md:px-0 pb-[20px] sm:py-[40px] relative overflow-hidden"
+      className="px-5 md:px-0 py-[120px] sm:py-[40px]  sm:pt-[20px] relative overflow-hidden"
       itemScope
       itemType="https://schema.org/WebPageElement"
       ref={ref}
@@ -66,7 +66,7 @@ export const HeroSection = () => {
         // }}
       />
 
-      <div className='max-w-4xl mx-auto pt-[60px] sm:pt-[20px] relative'>
+      <div className='max-w-4xl mx-auto relative'>
         <motion.div 
           className="flex flex-col items-center justify-center gap-[32px]"
           variants={containerVariants}
@@ -97,7 +97,7 @@ export const HeroSection = () => {
             //   y: ySubheading,
             //   translateZ: zSubheading
             // }}
-            className="text-[18px] sm:text-lg leading-[1.1] font-bold text-[#0AB2AC] text-center relative z-20"
+            className="text-[18px] sm:text-lg font-normal text-center relative z-20"
             itemProp="headline"
             variants={childVariants}
           >
@@ -114,7 +114,7 @@ export const HeroSection = () => {
             className="relative z-30 flex gap-3"
           >
             <MotionButton href="/contact" text="Contact Us" variant="cta" />
-            <MotionButton href="/SeePlans" text="Contact Us" variant="outline" />
+            <MotionButton href="/SeePlans" text="See Plans" variant="outline" showChevron={false} />
            
           </motion.div>
 

@@ -28,7 +28,9 @@ export const ServicesSection = () => {
 const ProcessTitleSubtitle = () => {
   return (
     <header className="mb-[42px] gap-[32px] md:gap-[12px] flex flex-col flex-start">
-      <IconBadge text="Services" />
+      <div className="flex items-center justify-center">
+        <IconBadge text="Services" />
+      </div>
       <h2 className="text-xl font-bold" itemProp="name">
         Innovative services for growth
       </h2>
