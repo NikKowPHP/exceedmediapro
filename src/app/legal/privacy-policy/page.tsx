@@ -11,7 +11,6 @@ export default function PrivacyPolicyPage() {
         <div className="flex flex-col gap-[30px] py-[80px] md:py-[160px]">
           <div className="flex flex-col items-center gap-[30px]">
           <IconBadge
-              lucideIconName="Calendar"
               text="14 Jan 2025"
               bgColor="#014441"
               textColor="white"

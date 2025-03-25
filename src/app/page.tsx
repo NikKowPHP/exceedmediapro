@@ -22,6 +22,7 @@ export default async function HomePage() {
         {/* Priority Content for LCP */}
         <HeroSection />
         <SubHeroSection />
+            <BetterOutcomesSection />
 
         {/* Deferred Content */}
         <div className="relative">
@@ -33,9 +34,6 @@ export default async function HomePage() {
           </Suspense>
           <Suspense fallback={<div className="min-h-[700px]" />}>
             <SliderSection />
-          </Suspense>
-          <Suspense fallback={<div className="min-h-[700px]" />}>
-            <BetterOutcomesSection />
           </Suspense>
           <Suspense fallback={<div className="min-h-[700px]" />}>
             <FaqSection />

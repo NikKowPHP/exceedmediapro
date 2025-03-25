@@ -6,54 +6,35 @@ import {
 import { LucideIcons } from "@/lib/data/better_outcome-data";
 import { IconBadge } from "../ui/icon-badge";
 
-export const BetterOutcomesSection = async () => {
+export const BetterOutcomesSection = () => {
   const processItems = getProcessItems();
 
   return (
-    <>
-      <Suspense
-        fallback={
-          <div
-            className="flex items-center justify-center min-h-[200px]"
-            aria-label="Loading process section"
-          >
-            Loading...
-          </div>
-        }
-      >
-        <section
-          id="better-outcomes"
-          className="pb-[80px] md:pb-[160px] "
-          itemScope
-          itemType="https://schema.org/HowTo"
-          aria-labelledby="process-title"
-        >
-          <div className="max-w-7xl mx-auto  px-[20px] sm:px-0">
-            <ProcessTitleSubtitle />
-            <ProcessItemList processItems={processItems} />
-          </div>
-        </section>
-      </Suspense>
-    </>
+    <section
+      id="better-outcomes"
+      className="pb-[80px] md:pb-[160px] border border-red-500 "
+      itemScope
+      itemType="https://schema.org/HowTo"
+      aria-labelledby="process-title"
+    >
+      <div className="max-w-7xl mx-auto  px-[20px] sm:px-0">
+        <ProcessTitleSubtitle />
+        <ProcessItemList processItems={processItems} />
+      </div>
+    </section>
   );
 };
 
 const ProcessTitleSubtitle = () => {
   return (
     <header className="mb-[42px] gap-[32px] md:gap-[12px] flex flex-col flex-start">
-      <h2 id="process-title" className="flex" itemProp="name">
-        <IconBadge
-          lucideIconName="Diamond"
-          text="Better Outcomes"
-          bgColor="#014441"
-          textColor="white"
-        />
+      <IconBadge text="Services" />
+      <h2  className="text-xl font-bold" itemProp="name">
+        Innovative services for growth
       </h2>
-      <h3 className="text-[24px] md:text-[44px] ">Achieve Better Outcomes in Endoscopy</h3>
-      <p className="text-[18px] md:text-[20px]">
-        Discover the advantages of single-use instruments for enhanced safety
-        and efficiency.
-      </p>
+      <h3 className="text-[24px] md:text-[44px] ">
+        Achieve Better Outcomes in Endoscopy
+      </h3>
     </header>
   );
 };
@@ -68,7 +49,7 @@ const ProcessItem = ({
   const Icon = LucideIcons[item.icon];
   return (
     <div
-      className="p-[25px]  flex flex-col md:flex-row gap-[60px] md:gap-[32px] leading-[1.6]  bg-[#F8F1E7] rounded-3xl"
+      className="p-[25px]  flex flex-col md:flex-row gap-[60px] md:gap-[32px] leading-[1.6]  bg-card rounded-3xl border border-red-500"
       itemProp="step"
       itemScope
       itemType="https://schema.org/HowToStep"
@@ -97,15 +78,15 @@ const ProcessItem = ({
   );
 };
 
-const ProcessItemList = async ({
+const ProcessItemList = ({
   processItems,
 }: {
-  processItems: Promise<ProcessItemType[]>;
+  processItems: ProcessItemType[];
 }) => {
-  const items = await processItems;
+  const items = processItems;
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-[32px] sm:gap-y-0 sm:gap-x-[32px] w-full justify-center mx-auto"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-[15px] sm:gap-y-0 sm:gap-x-[15px] w-full justify-center mx-auto"
       role="list"
       aria-label="Development process steps"
     >

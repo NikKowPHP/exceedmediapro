@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { IconBadge } from "../ui/icon-badge";
 
 export function SubHeroSection() {
   const { scrollY } = useScroll();
@@ -12,9 +13,9 @@ export function SubHeroSection() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      // initial={{ opacity: 0, y: 20 }}
+      // animate={{ opacity: 1, y: 0 }}
+      // transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative overflow-hidden sm:py-[40px]"
       itemScope
       itemType="https://schema.org/WebPageElement"
@@ -34,15 +35,8 @@ export function SubHeroSection() {
             delay: 0.2 
           }}
         >
-          <Image
-            src="/subhero.avif"
-            alt="Subhero"
-            fill
-            quality={100}
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority
-          />
+          <IconBadge text="Our Mission" />
+          <h1 className="text-title">Our mission is to provide advanced and effective promotion strategies to help your business thrive in the digital space.</h1>
         </motion.div>
       </div>
       <div className="opacity-0 animate-fadeIn"></div>

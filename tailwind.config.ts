@@ -13,6 +13,7 @@ const config: Config = {
         primary: '#000',
         secondary: '#fff',
         action: '#5371ff',
+        card: '#ffffff0f',
 
         text: {
           title: '#fff',
