@@ -1,23 +1,46 @@
 export const footerConfig = {
   aboutLinks: [
-   
     {
-      title: 'Contact us',
-      href: 'contact',
-      isRoute: true,
+      title: 'Services',
+      href: '/services',
+      isRoute: false,
     },
-  
+    {
+      title: 'Process',
+      href: '/process',
+      isRoute: false,
+    },
+    {
+      title: 'Contact',
+      href: 'contact',
+      isRoute: false,
+    },
+    {
+      title: 'Benefits',
+      href: '/benefits',
+      isRoute: false,
+    },
+    {
+      title: 'Pricing',
+      href: '/pricing',
+      isRoute: false,
+    },
   ],
   pageLinks: [
    
     {
-      title: 'Terms of Service',
-      href: '/legal/terms-of-service',
+      title: 'Home',
+      href: '/',
       isRoute: true,
     },
     {
-      title: 'Privacy Policy',
-      href: '/legal/privacy-policy',
+      title: 'Coming Soon',
+      href: '/coming-soon',
+      isRoute: true,
+    },
+    {
+      title: '404',
+      href: '/404',
       isRoute: true,
     },
   ],
@@ -34,6 +57,23 @@ export const footerConfig = {
       isRoute: false,
       icon: 'Instagram',
     },
+    {
+      title: 'LinkedIn',
+      href: 'https://www.linkedin.com/company/rosemedical',
+      isRoute: false,
+      icon: 'LinkedIn',
+    },
+    {
+      title: 'Facebook',
+      href: 'https://www.facebook.com/rosemedical',
+      isRoute: false,
+      icon: 'Facebook',
+    },
+    {
+      title: 'ThreadsNet',
+      href: 'https://www.threads.net/rosemedical',
+      isRoute: false,
+      icon: 'ThreadsNet',
+    },
   ],
 } as const 
-
