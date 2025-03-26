@@ -79,7 +79,7 @@ export const HeroSection = () => {
 
       <div className='max-w-4xl mx-auto relative'>
         <motion.div 
-          className="flex flex-col items-center justify-center gap-[32px]"
+          className="flex flex-col items-center justify-center gap-[15px]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"

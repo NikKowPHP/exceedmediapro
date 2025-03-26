@@ -27,7 +27,7 @@ export function Navbar() {
           <div className="flex-1  ">
             <Link
               href="/"
-              className="gap-2 self-start font-bold transition-all duration-300   flex items-center w-full flex-1"
+              className="gap-2 self-start p-[10px] font-bold transition-all duration-300   flex items-center w-full flex-1"
               title="Exceed Media Pro"
               aria-label="Exceed Media Pro Homepage"
             >
