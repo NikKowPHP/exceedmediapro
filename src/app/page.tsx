@@ -8,6 +8,7 @@ import {
   Pricing,
   TestimonialsSection,
   ContactSection,
+  FaqSection,
 } from "@/helpers/componentsLoad";
 import { companyConfig } from "@/config/company";
 
@@ -28,7 +29,7 @@ export default async function HomePage() {
         <Pricing />
         <TestimonialsSection />
         <ContactSection />
-
+        <FaqSection />
     
 
         {/* Metadata */}

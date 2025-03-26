@@ -1,32 +1,32 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { FaqItem  } from '@/lib/data/faq-data'
-import { cn } from '@/lib/utils/cn'
-import { ChevronDown } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { useState } from "react";
+import { FaqItem } from "@/lib/data/data";
+import { cn } from "@/lib/utils/cn";
+import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { IconBadge } from "../ui/icon-badge";
 
 interface FaqAccordionProps {
-  faqItem: FaqItem
-  isOpen: boolean
-  onToggle: () => void
-  faqItems: FaqItem[]
+  faqItem: FaqItem;
+  isOpen: boolean;
+  onToggle: () => void;
+  faqItems: FaqItem[];
 }
 
 function FaqAccordion({ faqItem, isOpen, onToggle }: FaqAccordionProps) {
-
   return (
     <div
-      className="border-b border-gray-200"
+      className="border border-borderColor-primary rounded-3xl bg-card  "
       key={faqItem.id}
       itemScope
       itemType="https://schema.org/Question"
     >
       <button
-        className="flex w-full items-center justify-between p-[16px] text-left "
+        className="flex w-full items-center justify-between px-[18px] py-[20px] text-left "
         onClick={onToggle}
       >
-        <span className="text-[20px] md:text-[28px] font-medium">
+        <span className=" md:text-[28px] ">
           {faqItem.question}
         </span>
         <span className="ml-6 flex-shrink-0">
@@ -38,10 +38,7 @@ function FaqAccordion({ faqItem, isOpen, onToggle }: FaqAccordionProps) {
               <ChevronDown className="h-6 w-6" />
             </motion.div>
           ) : (
-            <motion.div
-              animate={{ rotate: 0 }}
-              transition={{ duration: 0.2 }}
-            >
+            <motion.div animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
               <ChevronDown className="h-6 w-6" />
             </motion.div>
           )}
@@ -49,65 +46,79 @@ function FaqAccordion({ faqItem, isOpen, onToggle }: FaqAccordionProps) {
       </button>
       <div
         className={cn(
-          'grid overflow-hidden  duration-300 ease-in-out',
-          isOpen ? 'grid-rows-[1fr] ' : 'grid-rows-[0fr] '
+          "grid overflow-hidden  duration-300 ease-in-out",
+          isOpen ? "grid-rows-[1fr] " : "grid-rows-[0fr] "
         )}
       >
-        <div className="overflow-hidden"
-        
+        <div
+          className="overflow-hidden"
           itemScope
           itemProp="acceptedAnswer"
           itemType="https://schema.org/Answer"
         >
-          <p
-            itemProp="text"
-            className="text-gray-600 text-base pb-6 px-10 "
-          >
+          <p itemProp="text" className="text-subtitle pb-6 px-[18px] md:pb-6 md:px-10 ">
             {faqItem.answer}
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function Faq({ items }: { items: FaqItem[] }) {
-  const [openId, setOpenId] = useState<number | null>(null)
+  const [openId, setOpenId] = useState<number | null>(null);
 
   return (
     <section
-      id='faqs'
+      id="faqs"
       className="pb-[80px] md:pb-[160px] "
-       itemScope
+      itemScope
       itemType="https://schema.org/FAQPage"
     >
-      <div className="max-w-7xl mx-auto px-[20px] sm:px-0 flex flex-col md:flex-row gap-[32px] md:gap-[62px]">
-        <div className='flex flex-col gap-[24px]'>
-
-        <h2 className="text-black text-[20px] md:text-[28px]  font-medium " itemProp="name">
-          Welcome to FAQ!
-        </h2>
-        <p className='text-[24px] md:text-[44px]'>
-        Everything You Need to Know Alton's disposable endoscopic accessories supplied by Rose Medical
-        </p>
-        </div>
-        <div 
-          className="mx-auto flex flex-col gap-[32px] text-black"
+      <div className="max-w-7xl mx-auto px-[20px] sm:px-0 flex flex-col justify-center items-center md:flex-row gap-[32px] md:gap-[62px]">
+        <FaqSectionTitleSubtitle />
+        <div
+          className="mx-auto flex flex-col gap-[12px] "
           itemProp="mainEntity"
         >
           {items.map((item) => (
             <FaqAccordion
-                  key={item.id}
-                  faqItem={item}
-                  isOpen={openId === item.id}
-                  onToggle={() => setOpenId(openId === item.id ? null : item.id)}
-                  faqItems={items}
-                />
+              key={item.id}
+              faqItem={item}
+              isOpen={openId === item.id}
+              onToggle={() => setOpenId(openId === item.id ? null : item.id)}
+              faqItems={items}
+            />
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 
+const FaqSectionTitleSubtitle = () => {
+  return (
+    <header className="mb-[35px] gap-[25px]  flex flex-col flex-center items-center">
+      <div className="flex flex-center items-center">
+        <IconBadge
+          text="FAQ"
+          textColor="text-subtitle"
+          className="text-[14px]"
+        />
+      </div>
+      <div className="flex flex-col items-center justify-center gap-[10px]">
+        <h2
+          id="process-title"
+          className="text-[28px] md:text-[44px] font-[500] text-center"
+          itemProp="name"
+        >
+          We&apos;re here to help
+        </h2>
+        <p className=" text-subtitle text-center">
+          FAQs designed to provide the information you need.
+        </p>
+      </div>
+    </header>
+  );
+};
