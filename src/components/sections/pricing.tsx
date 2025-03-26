@@ -55,7 +55,10 @@ export function PricingCard({ plan }: PricingCardProps) {
   );
 }
 
-function PricingContent({ plans }: { plans: PricingPlan[] }) {
+
+
+export function Pricing() {
+  const plans = getPricingPlans();
   return (
     <section
       id="pricing"
@@ -71,6 +74,10 @@ function PricingContent({ plans }: { plans: PricingPlan[] }) {
         <p className="text-center text-lg sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 md:mb-16">
           Scalable Solutions Designed for Every Stage of Your Business Journey
         </p>
+        <div className="flex justify-center">
+          <Button variant="outline">Monthly</Button>
+          <Button variant="outline">Yearly</Button>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-full mx-auto sm:px-10">
           {plans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} />
@@ -79,9 +86,4 @@ function PricingContent({ plans }: { plans: PricingPlan[] }) {
       </div>
     </section>
   );
-}
-
-export async function Pricing() {
-  const plans = await getPricingPlans();
-  return <PricingContent plans={plans} />;
 }
