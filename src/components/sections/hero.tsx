@@ -7,6 +7,7 @@ import { IconBadge } from '../ui/icon-badge'
 import { services } from '@/lib/data/services'
 import { RunningTags } from './running-tags'
 import { HeroBackground } from '../ui/hero-background'
+import { HeroCanvas } from '../ui/hero-canvas'
 
 export const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -58,6 +59,13 @@ export const HeroSection = () => {
       style={{ perspective: 1000 }}
     >
       <HeroBackground topPosition={900} />
+
+      <HeroCanvas 
+        particleCount={80}
+        particleColor="rgba(255, 255, 255, 0.15)"
+        particleSizeRange={[1, 2]}
+        speedRange={[-0.75, 0.75]}
+      />
    
       {/* Background layer */}
       <motion.div 
