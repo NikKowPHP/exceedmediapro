@@ -14,10 +14,11 @@ const config: Config = {
         secondary: '#fff',
         action: '#5371ff',
         card: '#ffffff0f',
+        subtitle: '#ffffffb3',
 
         text: {
         
-          subtitle: '#ffffffcc',
+          subtitle: '#ffffffb3',
           primary: '#fff',
           tertiary: '#999999',
           black: '#000000',

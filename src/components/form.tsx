@@ -1,18 +1,19 @@
-"use client"
-import { ChevronDownIcon } from 'lucide-react';
-import { useState } from 'react';
+"use client";
+import { ChevronDownIcon } from "lucide-react";
+import { useState } from "react";
 
 export const Form = () => {
   const [formData, setFormData] = useState({
-    First: '',
-    Last: '',
-    Email: '',
-    Location: '',
+    Name: "",
+    Email: "",
+    Message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -20,7 +21,7 @@ export const Form = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form data:', formData);
+    console.log("Form data:", formData);
 
     // Simulate form submission (replace with your actual submission logic)
     try {
@@ -45,15 +46,14 @@ export const Form = () => {
       //   console.error('Form submission failed.');
       // }
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log('Form submitted successfully!');
-            setFormData({
-        First: '',
-        Last: '',
-        Email: '',
-        Location: '',
+      console.log("Form submitted successfully!");
+      setFormData({
+        Name: "",
+        Email: "",
+        Message: "",
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
     }
   };
 
@@ -68,26 +68,14 @@ export const Form = () => {
       <form className="space-y-6 pt-6 text-[16px]" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row gap-[20px]">
           <label className="block md:w-1/2 ">
-            <p className="text-gray-700   mb-2">First name</p>
+            <p className="text-gray-700   mb-2">Name</p>
             <input
               type="text"
               required
-              name="First"
-              placeholder="Jane"
+              name="Name"
+              placeholder="Maks Chamlukov"
               className=" appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 border-gray-200 leading-tight focus:outline-none focus:border-gray-300"
-              value={formData.First}
-              onChange={handleChange}
-            />
-          </label>
-          <label className="block md:w-1/2">
-            <p className="text-gray-700   mb-2">Last name</p>
-            <input
-              type="text"
-              required
-              name="Last"
-              placeholder="Smith"
-              className=" appearance-none border rounded-lg  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-300"
-              value={formData.Last}
+              value={formData.Name}
               onChange={handleChange}
             />
           </label>
@@ -99,30 +87,21 @@ export const Form = () => {
             required
             name="Email"
             placeholder="jane@example.com"
-            className=" appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-300"
+            className=" appearance-none border rounded-lg w-full py-2 px-3 text-subtitle leading-tight focus:outline-none focus:border-gray-300"
             value={formData.Email}
             onChange={handleChange}
           />
         </label>
         <label className="block">
-          <p className="text-gray-700  mb-2">Location</p>
-          <div className="relative">
-
-          <select
-            name="Location"
+          <p className="text-gray-700  mb-2">Message</p>
+          <textarea
+            name="Message"
+            placeholder="Hi i'm reaching out to you because..."
             required
-            className=" appearance-none border bg-white rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-300"
-            value={formData.Location}
+            className="appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-300"
+            value={formData.Message}
             onChange={handleChange}
-          >
-            <option value="" disabled >
-              Select…
-            </option>
-            <option value="amsterdam">Amsterdam</option>
-            <option value="barcelona">Barcelona</option>
-          </select>
-            <ChevronDownIcon className="w-5 h-5 absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
-          </div>
+          />
         </label>
         <button
           type="submit"

@@ -1,4 +1,4 @@
-import { MessageSquareMore, Phone } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { Form } from "../form";
 import { IconBadge } from "../ui/icon-badge";
 
@@ -12,29 +12,22 @@ export const ContactSection = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center md:items-start md:flex-row gap-[20px]">
-          <div className="flex flex-col items-start gap-[16px] md:w-full">
-            <IconBadge text="Contact us" bgColor="#014441" textColor="white" />
+          <div className="flex flex-col items-center gap-[16px] md:w-full">
+            <ContactSectionTitleSubtitle />
 
-            <h2 className="text-[22px] md:text-[44px] ">24/7 Available</h2>
-
-            <p className="text-[16px] md:text-[20px]">
-              You can contact us via email, phone, or by filling out the form on
-              this page. We strive to respond promptly and look forward to
-              connecting with you soon!
-            </p>
-
-            <div className="flex flex-col md:flex-row ml-2 justify-center gap-[24px] pb-[32px]">
-              <div className="flex items-center gap-[10px] text-[18px]">
-                <div className=" rounded-full p-[8px] border text-gray-500 border-gray-300">
-                  <MessageSquareMore className="w-[20px] h-[20px]" />
-                </div>{" "}
+            <div className="flex flex-col   justify-center items-center gap-[24px] pb-[32px]">
+              <div className="flex items-center gap-[10px] text-[18px] text-subtitle">
+                <Mail className="w-[20px] h-[20px] text-subtitle" />
                 <span>example@gmail.com</span>
               </div>
-              <div className="flex items-center gap-[10px] text-[18px]">
-                <div className=" rounded-full p-[8px] border text-gray-500 border-gray-300">
-                  <Phone className="w-[20px] h-[20px]" />
-                </div>{" "}
+              <div className="flex items-center gap-[10px] text-[18px] text-subtitle">
+                <Phone className="w-[20px] h-[20px] text-subtitle" />
+
                 <span>+44 123 456 7890</span>
+              </div>
+              <div className="flex items-center gap-[10px] text-[18px] text-subtitle">
+                <MapPin className="w-[20px] h-[20px] text-subtitle" />
+                <span>100 Zakopane</span>
               </div>
             </div>
           </div>
@@ -45,5 +38,32 @@ export const ContactSection = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+const ContactSectionTitleSubtitle = () => {
+  return (
+    <header className="mb-[35px] gap-[25px]  flex flex-col flex-center items-center">
+      <div className="flex flex-center items-center">
+        <IconBadge
+          text="Contact us"
+          textColor="#ffffffb3"
+          className="text-[14px]"
+        />
+      </div>
+      <div className="flex flex-col items-center justify-center gap-[10px]">
+        <h2
+          id="process-title"
+          className="text-[28px] md:text-[44px] font-[500] text-center"
+          itemProp="name"
+        >
+          Apply Now!
+        </h2>
+        <p className=" text-[#ffffffb3] text-center">
+          Get a <span className="font-bold text-blue-700">FREE audit</span> and{" "}
+          <span className="text-blue-700">Google Analytics</span> setup today!
+        </p>
+      </div>
+    </header>
   );
 };

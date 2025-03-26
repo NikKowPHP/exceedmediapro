@@ -111,3 +111,10 @@ export const TestimonialsSection = dynamic(
     ssr: true,
   }
 )
+
+export const Form = dynamic(
+  () => import('@/components/form').then(mod => mod.Form),
+  {
+    ssr: true,
+  }
+)
