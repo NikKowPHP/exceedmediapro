@@ -42,8 +42,9 @@ export const HeroCanvas = ({
       speedY: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        
+        this.x = Math.random() * canvas!.width;
+        this.y = Math.random() * canvas!.height;
         this.size = Math.random() * (particleSizeRange[1] - particleSizeRange[0]) + particleSizeRange[0];
         this.speedX = Math.random() * (speedRange[1] - speedRange[0]) + speedRange[0];
         this.speedY = Math.random() * (speedRange[1] - speedRange[0]) + speedRange[0];
@@ -53,15 +54,15 @@ export const HeroCanvas = ({
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+        if (this.x > canvas!.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas!.height || this.y < 0) this.speedY *= -1;
       }
 
       draw() {
-        ctx.fillStyle = particleColor;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+        ctx!.fillStyle = particleColor;
+        ctx!.beginPath();
+        ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx!.fill();
       }
     }
 
