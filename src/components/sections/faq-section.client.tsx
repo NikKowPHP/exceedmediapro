@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils/cn";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { IconBadge } from "../ui/icon-badge";
-import { SectionBackground } from "../ui/SectionBackground";
+import { SectionBackground } from "../ui/section-background";
 
 interface FaqAccordionProps {
   faqItem: FaqItem;
@@ -92,7 +92,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
             />
           ))}
         </div>
-        <SectionBackground topPosition={100}/>
+        <SectionBackground topPosition={100} imageUrl="/bg-form.svg"/>
       </div>
     </section>
   );

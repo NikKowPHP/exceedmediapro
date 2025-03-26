@@ -1,7 +1,7 @@
 import { MotionButton } from "../ui/motion-button";
 
 import { IconBadge } from "../ui/icon-badge";
-import { SectionBackground } from "../ui/SectionBackground";
+import { SectionBackground } from "../ui/section-background";
 export const CtaSection = () => {
   return (
     <section
@@ -21,7 +21,7 @@ export const CtaSection = () => {
             </p>
 
             <div className="w-full relative">
-              <SectionBackground />
+              <SectionBackground imageUrl="/bg-form.svg" />
             </div>
           </div>
         </div>

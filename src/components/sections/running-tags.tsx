@@ -1,54 +1,54 @@
-'use client'
+"use client";
 
-import { type Service } from '@/lib/data/services'
-import { useEffect, useRef } from 'react'
-import { HeroBackground } from '../ui/hero-background'
+import { type Service } from "@/lib/data/services";
+import { useEffect, useRef } from "react";
+import { SectionBackground } from "../ui/section-background";
 
 interface RunningTagsProps {
-  services: Service[]
-  speed?: number
+  services: Service[];
+  speed?: number;
 }
 
 export function RunningTags({ services, speed = 50 }: RunningTagsProps) {
-  const scrollerRef = useRef<HTMLDivElement>(null)
-  const scrollerInnerRef = useRef<HTMLDivElement>(null)
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const scrollerInnerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!scrollerRef.current || !scrollerInnerRef.current) return
+    if (!scrollerRef.current || !scrollerInnerRef.current) return;
 
-    const scrollerContent = Array.from(scrollerInnerRef.current.children)
+    const scrollerContent = Array.from(scrollerInnerRef.current.children);
     scrollerContent.forEach((item) => {
-      const duplicatedItem = item.cloneNode(true)
+      const duplicatedItem = item.cloneNode(true);
       if (scrollerInnerRef.current) {
-        scrollerInnerRef.current.appendChild(duplicatedItem)
+        scrollerInnerRef.current.appendChild(duplicatedItem);
       }
-    })
+    });
 
-    const scrollerInner = scrollerInnerRef.current
+    const scrollerInner = scrollerInnerRef.current;
     const scrollingAnimation = scrollerInner.animate(
       [
-        { transform: 'translateX(0)' },
+        { transform: "translateX(0)" },
         { transform: `translateX(-${scrollerContent[0].clientWidth}px)` },
       ],
       {
         duration: scrollerContent[0].clientWidth * speed,
         iterations: Infinity,
       }
-    )
+    );
 
     return () => {
-      scrollingAnimation.cancel()
-    }
-  }, [speed])
+      scrollingAnimation.cancel();
+    };
+  }, [speed]);
 
   return (
     <div
       ref={scrollerRef}
       className="max-w-[100vw]  rounded-full bg-black py-8 relative "
-      itemScope 
-      itemType="https://schema.org/ItemList" 
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
-         <HeroBackground  topPosition={200} />
+      <SectionBackground topPosition={200} imageUrl="/bg-hero-1.svg" />
       <div
         ref={scrollerInnerRef}
         className="flex min-w-full shrink-0 gap-8 py-4"
@@ -58,14 +58,14 @@ export function RunningTags({ services, speed = 50 }: RunningTagsProps) {
             key={service.id}
             className="flex-shrink-0 py-6 text-[24px] font-normal text-white"
             itemProp="itemListElement"
-            itemScope 
+            itemScope
             itemType="https://schema.org/Service"
           >
-             <meta itemProp="position" content={String(index + 1)} />
-             <span itemProp="name">{service.name}</span>
+            <meta itemProp="position" content={String(index + 1)} />
+            <span itemProp="name">{service.name}</span>
           </span>
         ))}
       </div>
     </div>
-  )
+  );
 }

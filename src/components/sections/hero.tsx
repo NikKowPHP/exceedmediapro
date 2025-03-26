@@ -6,8 +6,8 @@ import { MotionButton } from '../ui/motion-button'
 import { IconBadge } from '../ui/icon-badge'
 import { services } from '@/lib/data/services'
 import { RunningTags } from './running-tags'
-import { HeroBackground } from '../ui/hero-background'
 import { HeroCanvas } from '../ui/hero-canvas'
+import SectionBackground from '../ui/section-background'
 
 export const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -58,7 +58,7 @@ export const HeroSection = () => {
       ref={ref}
       style={{ perspective: 1000 }}
     >
-      <HeroBackground topPosition={900} />
+      <SectionBackground topPosition={900} imageUrl="/bg-hero-1.svg" />
 
       <HeroCanvas 
         particleCount={80}

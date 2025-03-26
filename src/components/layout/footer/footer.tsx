@@ -3,7 +3,7 @@ import Link from "next/link";
 import { footerConfig } from "@/config/footer";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import IconContainer from "@/components/ui/icon-section-container";
-import { FooterBackground } from "@/components/ui/footer-background";
+import { SectionBackground } from "@/components/ui/section-background";
 
 const svgIcon = ({
   width = 35,
@@ -43,7 +43,7 @@ export function Footer() {
         itemScope
         itemType="https://schema.org/Organization"
       >
-        <FooterBackground  topPosition={300} />
+        <SectionBackground  topPosition={300} imageUrl="/bg-footer.svg" />
         <div className="max-w-7xl mx-auto px-[40px] md:px-0">
           <div className="flex flex-col justify-start md:flex-row md:flex-wrap gap-[30px] sm:gap-[30px]  md:gap-[100px]  w-full ">
 

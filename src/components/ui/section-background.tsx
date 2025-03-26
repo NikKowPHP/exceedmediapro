@@ -1,10 +1,11 @@
 
-export const HeroBackground = ({topPosition = 600, blur = 50, opacity = 0.7}: {topPosition?: number, blur?: number, opacity?: number}) => {
+export const SectionBackground = ({topPosition = 600, blur = 50, opacity = 0.7, imageUrl}: {topPosition?: number, blur?: number, opacity?: number, imageUrl?: string}) => {
   const bgStyles = {
     flexShrink: 0,
     opacity: opacity,
     backgroundSize: "100% 100%",
-    backgroundImage: "url('/bg-hero-1.svg')",
+    backgroundImage: `url(${imageUrl})`,
+    pointerEvents: 'none' as const,
   };
   const parentBgStyles = {
     WebkitFilter: `blur(${blur}px)`,
@@ -18,6 +19,7 @@ export const HeroBackground = ({topPosition = 600, blur = 50, opacity = 0.7}: {t
     top: `calc(50.13774104683198% - ${topPosition}px / 2)`,
     width: "923px",
     zIndex: 30,
+    pointerEvents: 'none' as const,
   };
 
   return (
@@ -27,4 +29,4 @@ export const HeroBackground = ({topPosition = 600, blur = 50, opacity = 0.7}: {t
   );
 };
 
-export default HeroBackground;
+export default SectionBackground;

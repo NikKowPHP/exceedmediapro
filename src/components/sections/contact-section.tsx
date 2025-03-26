@@ -1,7 +1,7 @@
 import { MapPin, Mail, Phone } from "lucide-react";
 import { Form } from "../form";
 import { IconBadge } from "../ui/icon-badge";
-import { SectionBackground } from "../ui/SectionBackground";
+import { SectionBackground } from "../ui/section-background";
 export const ContactSection = () => {
 
   return (
@@ -34,7 +34,7 @@ export const ContactSection = () => {
           </div>
           <div className="w-full relative"></div>
           <div className="w-full relative">
-            <SectionBackground />
+            <SectionBackground imageUrl="/bg-form.svg" />
             <Form />
           </div>
         </div>
