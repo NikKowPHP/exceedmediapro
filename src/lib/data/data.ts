@@ -36,6 +36,14 @@ export interface ProcessItem {
     deliveryTime?: string
     icon: keyof typeof LucideIcons;
   }
+
+  export interface TestimonialsItem {
+    id: string
+    name: string
+    role: string
+    content: string
+    image_url: string
+  }
   
   
    export const processItems: ProcessItem[] = [
@@ -172,6 +180,30 @@ export const pricingPlanMonthly: PricingPlan[] = [
   }
 ]
 
+export const testimonialsItems: TestimonialsItem[] = [
+  {
+    id: 'testimonial1',
+    name: 'Anna Kowalska',
+    role: 'Manager, Złota Biżuteria',
+    content: 'With a €370K budget, we earned €2.1M in revenue and 46K conversions, achieving a 571% ROAS.',
+    image_url: 'https://framerusercontent.com/images/KpKIhczMHAFoAiZwWpZaF2ySc.jpeg'
+  },
+  {
+    id: 'testimonial2',
+    name: 'John Doe',
+    role: 'CEO, Example Company',
+    content: 'Our sales increased by 200% within the first three months of working with this team.',
+    image_url: 'https://framerusercontent.com/images/KpKIhczMHAFoAiZwWpZaF2ySc.jpeg'
+  },
+  {
+    id: 'testimonial3',
+    name: 'Jane Smith',
+    role: 'Marketing Director, Sample Corp',
+    content: 'The team provided excellent service and helped us achieve our marketing goals efficiently.',
+    image_url: 'https://framerusercontent.com/images/KpKIhczMHAFoAiZwWpZaF2ySc.jpeg'
+  }
+]
+
 export  function getPricingPlans(): {anually: PricingPlan[], monthly: PricingPlan[]} {
   return {
     anually: pricingPlanAnually,
@@ -185,4 +217,8 @@ export  function getPricingPlans(): {anually: PricingPlan[], monthly: PricingPla
   }
   export  function getProcessItems(): ProcessItem[] {
     return processItems
+  }
+
+  export  function getTestimonialsItems(): TestimonialsItem[] {
+    return testimonialsItems
   }
