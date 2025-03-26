@@ -40,13 +40,15 @@ export function Footer() {
   return (
     <>
       <footer
-        className=" w-full py-12 md:py-[80px] border-t-2 border-white/10 text-white text-base md:text-[16px]"
+        className=" w-full py-12 md:py-[80px] border-t-2 border-white/10 text-white text-base md:text-[16px] overflow-hidden relative"
         itemScope
         itemType="https://schema.org/Organization"
       >
+        <FooterBackground  topPosition={300} />
         <div className="max-w-7xl mx-auto px-[40px] md:px-0">
-          <div className="flex flex-col justify-start md:flex-row md:flex-wrap gap-[30px] sm:gap-[30px]  md:gap-[100px]  w-full relative">
-            {/* <FooterBackground  topPosition={300} /> */}
+          <div className="flex flex-col justify-start md:flex-row md:flex-wrap gap-[30px] sm:gap-[30px]  md:gap-[100px]  w-full ">
+
+      
             {/* first row */}
             <div className="flex flex-col  gap-[10px]  ">
               <div className=" relative">
@@ -88,7 +90,7 @@ export function Footer() {
                   >
                     <IconContainer
                       icon={socialIcons[link.icon]}
-                      wrapperSize={30}
+                      wrapperSize={35}
                       iconSize={20}
                     />
                   </Link>

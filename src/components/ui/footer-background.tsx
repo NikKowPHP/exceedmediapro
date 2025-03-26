@@ -21,7 +21,7 @@ export const FooterBackground = ({topPosition = 600, blur = 50, opacity = 0.7}: 
   };
 
   return (
-    <div style={parentBgStyles} className=" inset-0 ">
+    <div style={parentBgStyles} className=" absolute inset-0 ">
       <div style={bgStyles} className="absolute inset-0 "></div>
     </div>
   );

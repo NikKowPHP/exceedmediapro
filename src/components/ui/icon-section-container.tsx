@@ -24,11 +24,14 @@ const IconContainer = ({
       {React.isValidElement(icon) ? (
         icon
       ) : (
-        React.createElement(icon as React.ElementType, {
-          className: `text-gray-300 ${iconClassName}`,
-          width: iconSize,
-          height: iconSize,
-        })
+        
+         <div className={`w-[${wrapperSize}px] h-[${wrapperSize}px] flex items-center justify-center`}>
+          {React.createElement(icon as React.ElementType, {
+            className: `text-gray-300 ${iconClassName}`,
+            width: iconSize,
+            height: iconSize,
+          })}
+        </div>
       )}
     </div>
   );
