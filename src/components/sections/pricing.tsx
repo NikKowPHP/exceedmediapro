@@ -57,8 +57,6 @@ export function PricingCard({ plan }: PricingCardProps) {
   );
 }
 
-
-
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(true);
   const plans = getPricingPlans();
@@ -68,15 +66,17 @@ export function Pricing() {
       className=" relative overflow-hidden bg-primary py-[10px]  sm:py-32 sm:pb-[60px]  md:py-24 md:pb-[60px]  rounded-primary sm:rounded-primary-lg"
     >
       <div className="relative mx-auto px-2 sm:px-6">
-        <div className="flex justify-center">
+        <div className="flex justify-center pb-[25px]">
           <IconBadge text="Plans" />
         </div>
-        <h2 className="text-center text-[36px] sm:text-[46px] md:text-[56px] font-medium text-white mb-8 sm:mb-12 md:mb-16">
-          Flexible Plans Tailored to Fuel Your Growth
-        </h2>
-        <p className="text-center text-lg sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 md:mb-16">
-          Scalable Solutions Designed for Every Stage of Your Business Journey
-        </p>
+        <div className="flex flex-col items-center gap-[10px] pb-[60px]">
+          <h2 className="text-center text-[28px] sm:text-[32px] md:text-[36px] font-medium text-white mb-8 sm:mb-12 md:mb-16">
+            Flexible Plans Tailored to Fuel Your Growth
+          </h2>
+          <p className="text-center text-lg sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 md:mb-16">
+            Scalable Solutions Designed for Every Stage of Your Business Journey
+          </p>
+        </div>
         <div className="flex justify-center gap-2">
           <Button
             variant={!isYearly ? "primary" : "outline"}
