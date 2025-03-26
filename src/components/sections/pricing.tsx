@@ -1,11 +1,10 @@
 "use client";
-import { Button } from "@/components/ui/button/button";
 import { getPricingPlans, type PricingPlan } from "@/lib/data/data";
 import { MotionButton } from "../ui/motion-button";
 import { IconBadge } from "../ui/icon-badge";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 interface PricingCardProps {
   plan: PricingPlan;
@@ -62,10 +61,15 @@ export function PricingCard({ plan }: PricingCardProps) {
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(true);
   const plans = getPricingPlans();
+  
+  const handleTabChange = (value: string) => {
+    setIsYearly(value === "yearly");
+  };
+
   return (
     <section
       id="pricing"
-      className=" relative overflow-hidden bg-primary py-[10px]  sm:py-32 sm:pb-[60px]  md:py-24 md:pb-[60px]  rounded-primary sm:rounded-primary-lg"
+      className="relative overflow-hidden bg-primary py-[10px] sm:py-32 sm:pb-[60px] md:py-24 md:pb-[60px] rounded-primary sm:rounded-primary-lg"
     >
       <div className="relative mx-auto px-2 sm:px-6">
         <div className="flex justify-center pb-[25px]">
@@ -80,59 +84,33 @@ export function Pricing() {
           </p>
         </div>
 
-
-          <div className="flex justify-center gap-4 mb-8">
-          <motion.div
-            className={`flex items-center text-cta pl-[20px] pr-[10px] py-[10px] rounded-primary-sm ${
-              !isYearly ? "bg-action text-white" : "bg-transparent border border-gray-700 text-white"
-            }`}
-            initial="rest"
-            whileHover="hover"
-            whileTap={{ scale: 0.97 }}
-            variants={{
-              rest: { scale: 1 },
-              hover: { 
-                scale: !isYearly ? 0.95 : 0.98,
-              }
-            }}
-            onClick={() => setIsYearly(false)}
+        <div className="flex justify-center mb-8">
+          <Tabs 
+            defaultValue="yearly" 
+            value={isYearly ? "yearly" : "monthly"} 
+            onValueChange={handleTabChange}
+            className="w-auto"
           >
-            <span>Monthly</span>
-            {!isYearly && (
-              <motion.div
-                className="relative w-[20px] h-[20px] ml-[10px] overflow-hidden"
+            <TabsList className="bg-[#1e1e1e] p-1 rounded-primary-sm">
+              <TabsTrigger 
+                value="monthly"
+                className="data-[state=active]:bg-action data-[state=active]:text-white text-gray-400 px-4 py-2"
               >
-                <ChevronRight className="w-full h-full text-white" />
-              </motion.div>
-            )}
-          </motion.div>
-          
-          <motion.div
-            className={`flex items-center text-cta pl-[20px] pr-[10px] py-[10px] rounded-primary-sm ${
-              isYearly ? "bg-action text-white" : "bg-transparent border border-gray-700 text-white"
-            }`}
-            initial="rest"
-            whileHover="hover"
-            whileTap={{ scale: 0.97 }}
-            variants={{
-              rest: { scale: 1 },
-              hover: { 
-                scale: isYearly ? 0.95 : 0.98,
-              }
-            }}
-            onClick={() => setIsYearly(true)}
-          >
-            <span>Yearly</span>
-            {isYearly && (
-              <motion.div
-                className="relative w-[20px] h-[20px] ml-[10px] overflow-hidden"
+                <div className="flex items-center">
+                  <span>Monthly</span>
+                </div>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="yearly"
+                className="data-[state=active]:bg-action data-[state=active]:text-white text-gray-400 px-4 py-2"
               >
-                <ChevronRight className="w-full h-full text-white" />
-              </motion.div>
-            )}
-          </motion.div>
+                <div className="flex items-center">
+                  <span>Yearly</span>
+                </div>
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
-
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-full mx-auto sm:px-10">
           {plans[isYearly ? "anually" : "monthly"].map((plan) => (
