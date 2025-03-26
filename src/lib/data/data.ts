@@ -121,8 +121,8 @@ export const pricingPlanAnually: PricingPlan[] = [
   },
   {
     id: 'multi-page',
-    title: 'multiPagePlan.title',
-    description: 'multiPagePlan.description',
+    title: 'Pro Plan',
+    description: 'Designed for small businesses or startups looking to establish their online presence.',
     price: '1990 PLN',
     pricePrefix: 'from',
     features: [

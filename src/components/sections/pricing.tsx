@@ -20,13 +20,13 @@ export function PricingCard({ plan }: PricingCardProps) {
       <meta itemProp="priceCurrency" content="PLN" />
       <meta itemProp="price" content={plan.price.toString()} />
       <h3
-        className="text-[24px] sm:text-[28px] md:text-[32px] font-medium text-center text-black"
+        className="text-[28px] sm:text-[32px] md:text-[36px] font-medium text-center text-black"
         itemProp="name"
       >
         {plan.title}
       </h3>
 
-      <p className="text-sm sm:text-base text-gray-600 text-center">
+      <p className="text-lg sm:text-[20px] text-gray-600 text-center">
         {plan.description}
       </p>
 
