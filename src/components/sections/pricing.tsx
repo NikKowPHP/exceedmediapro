@@ -134,7 +134,7 @@ export function Pricing() {
             onValueChange={handleTabChange}
             className="w-auto"
           >
-            <TabsList className="bg-[#1e1e1e] p-1 rounded-primary-sm">
+            <TabsList className="bg-[#1e1e1e] p-[5px] rounded-primary-sm">
               <TabsTrigger
                 value="monthly"
                 className="data-[state=active]:bg-action data-[state=active]:text-white text-gray-400 px-4 py-2"
