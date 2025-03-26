@@ -4,6 +4,8 @@ import { getPricingPlans, type PricingPlan } from "@/lib/data/data";
 import { MotionButton } from "../ui/motion-button";
 import { IconBadge } from "../ui/icon-badge";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 
 interface PricingCardProps {
   plan: PricingPlan;
@@ -77,20 +79,61 @@ export function Pricing() {
             Scalable Solutions Designed for Every Stage of Your Business Journey
           </p>
         </div>
-        <div className="flex justify-center gap-2">
-          <Button
-            variant={!isYearly ? "primary" : "outline"}
+
+
+          <div className="flex justify-center gap-4 mb-8">
+          <motion.div
+            className={`flex items-center text-cta pl-[20px] pr-[10px] py-[10px] rounded-primary-sm ${
+              !isYearly ? "bg-action text-white" : "bg-transparent border border-gray-700 text-white"
+            }`}
+            initial="rest"
+            whileHover="hover"
+            whileTap={{ scale: 0.97 }}
+            variants={{
+              rest: { scale: 1 },
+              hover: { 
+                scale: !isYearly ? 0.95 : 0.98,
+              }
+            }}
             onClick={() => setIsYearly(false)}
           >
-            Monthly
-          </Button>
-          <Button
-            variant={isYearly ? "primary" : "outline"}
+            <span>Monthly</span>
+            {!isYearly && (
+              <motion.div
+                className="relative w-[20px] h-[20px] ml-[10px] overflow-hidden"
+              >
+                <ChevronRight className="w-full h-full text-white" />
+              </motion.div>
+            )}
+          </motion.div>
+          
+          <motion.div
+            className={`flex items-center text-cta pl-[20px] pr-[10px] py-[10px] rounded-primary-sm ${
+              isYearly ? "bg-action text-white" : "bg-transparent border border-gray-700 text-white"
+            }`}
+            initial="rest"
+            whileHover="hover"
+            whileTap={{ scale: 0.97 }}
+            variants={{
+              rest: { scale: 1 },
+              hover: { 
+                scale: isYearly ? 0.95 : 0.98,
+              }
+            }}
             onClick={() => setIsYearly(true)}
           >
-            Yearly
-          </Button>
+            <span>Yearly</span>
+            {isYearly && (
+              <motion.div
+                className="relative w-[20px] h-[20px] ml-[10px] overflow-hidden"
+              >
+                <ChevronRight className="w-full h-full text-white" />
+              </motion.div>
+            )}
+          </motion.div>
         </div>
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-full mx-auto sm:px-10">
           {plans[isYearly ? "anually" : "monthly"].map((plan) => (
             <PricingCard key={plan.id} plan={plan} />
