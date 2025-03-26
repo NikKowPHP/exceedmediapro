@@ -2,6 +2,7 @@
 
 import { type Service } from '@/lib/data/services'
 import { useEffect, useRef } from 'react'
+import { HeroBackground } from '../ui/hero-background'
 
 interface RunningTagsProps {
   services: Service[]
@@ -43,10 +44,11 @@ export function RunningTags({ services, speed = 50 }: RunningTagsProps) {
   return (
     <div
       ref={scrollerRef}
-      className="max-w-[100vw] overflow-hidden rounded-full bg-black py-8"
+      className="max-w-[100vw]  rounded-full bg-black py-8 relative "
       itemScope 
       itemType="https://schema.org/ItemList" 
     >
+         <HeroBackground  topPosition={200} />
       <div
         ref={scrollerInnerRef}
         className="flex min-w-full shrink-0 gap-8 py-4"

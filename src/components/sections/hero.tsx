@@ -6,6 +6,7 @@ import { MotionButton } from '../ui/motion-button'
 import { IconBadge } from '../ui/icon-badge'
 import { services } from '@/lib/data/services'
 import { RunningTags } from './running-tags'
+import { HeroBackground } from '../ui/hero-background'
 
 export const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -56,6 +57,8 @@ export const HeroSection = () => {
       ref={ref}
       style={{ perspective: 1000 }}
     >
+      <HeroBackground topPosition={900} />
+   
       {/* Background layer */}
       <motion.div 
         className="absolute inset-0"
