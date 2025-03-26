@@ -69,7 +69,7 @@ export const Form = () => {
               required
               name="Name"
               placeholder="Maks Chamlukov"
-              className=" appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 text-gray-700 bg-[#000] leading-tight focus:outline-none focus:border-gray-300"
+              className=" appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 text-gray-700 bg-[#ffffff0f]  leading-tight focus:outline-none focus:border-gray-300"
               value={formData.Name}
               onChange={handleChange}
             />
@@ -82,7 +82,7 @@ export const Form = () => {
             required
             name="Email"
             placeholder="jane@example.com"
-            className=" appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 bg-[#000] text-subtitle leading-tight focus:outline-none focus:border-gray-700"
+            className=" appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 bg-[#ffffff0f]  text-subtitle leading-tight focus:outline-none focus:border-gray-700"
             value={formData.Email}
             onChange={handleChange}
           />
@@ -93,7 +93,7 @@ export const Form = () => {
             name="Message"
             placeholder="Hi i'm reaching out to you because..."
             required
-            className="appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 bg-[#000] text-subtitle leading-tight min-h-[100px]  focus:outline-none focus:border-gray-300"
+            className="appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 bg-[#ffffff0f] text-subtitle leading-tight min-h-[100px]  focus:outline-none focus:border-gray-300"
             value={formData.Message}
             onChange={handleChange}
           />

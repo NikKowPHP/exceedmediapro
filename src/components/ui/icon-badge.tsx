@@ -13,7 +13,7 @@ type IconBadgeProps = {
 export function IconBadge({
   text,
   bgColor = '#0d0d0d',
-  textColor = 'white',
+  textColor = 'text-subtitle',
   className = '',
   iconSize = 15
 }: IconBadgeProps) {
