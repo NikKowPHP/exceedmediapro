@@ -18,11 +18,12 @@ export function PricingCard({ plan }: PricingCardProps) {
   const Icon = LucideIcons[plan.icon];
   return (
     <div
-      className="flex flex-col  p-[30px]  text-white rounded-[30px] 
+      className="flex flex-col  p-[30px]  bg-[#000] text-white rounded-[30px] 
       border border-white/10"
       style={{
-        background:
+        backgroundImage:
           "linear-gradient(149deg, rgba(81, 47, 235, 0.15) 0%, rgba(255, 255, 255, 0.06) 29%, rgba(255, 255, 255, 0.06) 74%, rgba(81, 47, 235, 0.15) 100%);",
+        backgroundRepeat: "repeat",
       }}
       itemScope
       itemType="https://schema.org/Offer"
@@ -43,27 +44,30 @@ export function PricingCard({ plan }: PricingCardProps) {
         </div>
 
         <div className="flex justify-start items-end">
-          <span className="text-[35px]">{plan.price}</span>
+          <span className="text-[35px] font-semibold">{plan.price}</span>
           <span>/</span>
           <span>month</span>
         </div>
 
-        <p className="text-lg sm:text-[20px] text-gray-600 text-center">
+        <p className="text-base sm:text-[20px] text-white/70 ">
           {plan.description}
         </p>
       </div>
 
-      <div className="flex justify-center py-[30px]">
-        <MotionButton href="/contact" text="Go With This Plan" variant="cta" />
+      <div className=" py-[30px]">
+        <MotionButton href="/contact" text="Go With This Plan" variant="cta" className="flex justify-center" />
       </div>
-      <ul className="space-y-3 sm:space-y-[10px] pt-2 sm:pt-4 w-full border border-red-500">
+      <ul className="space-y-3 sm:space-y-[10px] pt-2 sm:pt-4 w-full">
         {plan.features.map((feature) => (
           <li
             key={feature.id}
-            className="text-base  flex items-center gap-2 border border-red-500"
+            className="text-base  flex items-center justify-between gap-2"
           >
-            <IconContainer icon={Check} wrapperSize={30} iconSize={15} />
-            {feature.name}
+            <div className="flex items-center gap-2">
+
+              <IconContainer icon={Check} wrapperSize={30} iconSize={15} />
+            </div>
+            <span>{feature.name}</span>
           </li>
         ))}
       </ul>
@@ -108,9 +112,9 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden bg-primary py-[10px] sm:py-32 sm:pb-[60px] md:py-24 md:pb-[60px] rounded-primary sm:rounded-primary-lg"
+      className=" px-[25px] sm:px-0 relative overflow-hidden bg-primary py-[10px] sm:py-32 sm:pb-[60px] md:py-24 md:pb-[60px] rounded-primary sm:rounded-primary-lg"
     >
-      <div className="relative mx-auto px-2 sm:px-6">
+      <div className="relative mx-auto  ">
         <div className="flex justify-center pb-[25px]">
           <IconBadge text="Plans" />
         </div>
@@ -123,7 +127,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-[30px]">
           <Tabs
             defaultValue="yearly"
             value={isYearly ? "yearly" : "monthly"}
