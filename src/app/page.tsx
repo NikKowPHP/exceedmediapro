@@ -6,6 +6,7 @@ import {
   HowItWorksSection,
   WhyUsSection,
   Pricing,
+  TestimonialsSection,
 } from "@/helpers/componentsLoad";
 import { companyConfig } from "@/config/company";
 
@@ -24,30 +25,9 @@ export default async function HomePage() {
         <HowItWorksSection />
         <WhyUsSection />
         <Pricing />
+        <TestimonialsSection />
 
-        {/* Deferred Content */}
-        <div className="relative">
-          {/* <Suspense fallback={<div className="min-h-[400px]"></div>}>
-            <QuoteSection />
-          </Suspense>
-          <Suspense fallback={<div className="min-h-[300px]" />}>
-            <ProductSection />
-          </Suspense>
-          <Suspense fallback={<div className="min-h-[700px]" />}>
-            <SliderSection />
-          </Suspense>
-          <Suspense fallback={<div className="min-h-[700px]" />}>
-            <FaqSection />
-          </Suspense>
-          <Suspense fallback={<div className="min-h-[700px]" />}>
-            <CtaSection />
-          </Suspense> */}
-          {/* <Suspense fallback={<div className="min-h-[400px]">Loading video...</div>}>
-            <div>
-              <YoutubeSection />
-            </div>
-          </Suspense> */}
-        </div>
+    
 
         {/* Metadata */}
         <meta itemProp="name" content={companyConfig.name} />

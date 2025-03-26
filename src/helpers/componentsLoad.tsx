@@ -104,3 +104,10 @@ export const Pricing = dynamic(
     ssr: true,
   }
 )
+
+export const TestimonialsSection = dynamic(
+  () => import('@/components/sections/testimonials-section').then(mod => mod.TestimonialsSection),
+  {
+    ssr: true,
+  }
+)

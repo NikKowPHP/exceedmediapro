@@ -186,21 +186,21 @@ export const testimonialsItems: TestimonialsItem[] = [
     name: 'Anna Kowalska',
     role: 'Manager, Złota Biżuteria',
     content: 'With a €370K budget, we earned €2.1M in revenue and 46K conversions, achieving a 571% ROAS.',
-    image_url: 'https://framerusercontent.com/images/KpKIhczMHAFoAiZwWpZaF2ySc.jpeg'
+    image_url: '/images/client1.webp'
   },
   {
     id: 'testimonial2',
     name: 'John Doe',
     role: 'CEO, Example Company',
     content: 'Our sales increased by 200% within the first three months of working with this team.',
-    image_url: 'https://framerusercontent.com/images/KpKIhczMHAFoAiZwWpZaF2ySc.jpeg'
+    image_url: '/images/client1.webp'
   },
   {
     id: 'testimonial3',
     name: 'Jane Smith',
     role: 'Marketing Director, Sample Corp',
     content: 'The team provided excellent service and helped us achieve our marketing goals efficiently.',
-    image_url: 'https://framerusercontent.com/images/KpKIhczMHAFoAiZwWpZaF2ySc.jpeg'
+    image_url: '/images/client1.webp'
   }
 ]
 
