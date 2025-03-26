@@ -1,55 +1,68 @@
 "use client";
-import { getPricingPlans, type PricingPlan } from "@/lib/data/data";
+import {
+  getPricingPlans,
+  LucideIcons,
+  type PricingPlan,
+} from "@/lib/data/data";
 import { MotionButton } from "../ui/motion-button";
 import { IconBadge } from "../ui/icon-badge";
 import { useState } from "react";
-import { ChevronRight } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Check } from "lucide-react";
 
 interface PricingCardProps {
   plan: PricingPlan;
 }
 
 export function PricingCard({ plan }: PricingCardProps) {
+  const Icon = LucideIcons[plan.icon];
   return (
     <div
-      className="flex flex-col items-center p-6 sm:p-8 md:p-10 bg-white rounded-[24px] 
-    sm:rounded-[32px] space-y-2 sm:space-y-6"
+      className="flex flex-col  p-[30px]  text-white rounded-[30px] 
+      border border-white/10"
+      style={{
+        background:
+          "linear-gradient(149deg, rgba(81, 47, 235, 0.15) 0%, rgba(255, 255, 255, 0.06) 29%, rgba(255, 255, 255, 0.06) 74%, rgba(81, 47, 235, 0.15) 100%);",
+      }}
       itemScope
       itemType="https://schema.org/Offer"
     >
       <meta itemProp="priceCurrency" content="PLN" />
       <meta itemProp="price" content={plan.price.toString()} />
-      <h3
-        className="text-[28px] sm:text-[32px] md:text-[36px] font-medium text-center text-black"
-        itemProp="name"
-      >
-        {plan.title}
-      </h3>
+      <div className="flex flex-col gap-[15px]">
+        <div className="flex justify-start items-center gap-4">
+          <div>
+            <IconContainer icon={Icon} wrapperSize={30} iconSize={15} />
+          </div>
+          <h3
+            className="text-[16px] sm:text-[32px] md:text-[36px] font-medium text-center "
+            itemProp="name"
+          >
+            {plan.title}
+          </h3>
+        </div>
 
-      <p className="text-lg sm:text-[20px] text-gray-600 text-center">
-        {plan.description}
-      </p>
+        <div className="flex justify-start items-end">
+          <span className="text-[35px]">{plan.price}</span>
+          <span>/</span>
+          <span>month</span>
+        </div>
 
-      <div className="flex items-baseline gap-1">
-        {plan.pricePrefix && (
-          <span className="text-lg sm:text-xl text-gray-600">
-            {plan.pricePrefix}
-          </span>
-        )}
-        <span className="text-[36px] sm:text-[42px] md:text-[48px] font-medium text-black">
-          {plan.price}
-        </span>
+        <p className="text-lg sm:text-[20px] text-gray-600 text-center">
+          {plan.description}
+        </p>
       </div>
 
-      <MotionButton href="/contact" text="Go With This Plan" variant="cta" />
-
-      <ul className="space-y-3 sm:space-y-4 pt-2 sm:pt-4 w-full">
+      <div className="flex justify-center py-[30px]">
+        <MotionButton href="/contact" text="Go With This Plan" variant="cta" />
+      </div>
+      <ul className="space-y-3 sm:space-y-[10px] pt-2 sm:pt-4 w-full border border-red-500">
         {plan.features.map((feature) => (
           <li
             key={feature.id}
-            className="text-sm sm:text-base text-gray-600 text-center"
+            className="text-base  flex items-center gap-2 border border-red-500"
           >
+            <IconContainer icon={Check} wrapperSize={30} iconSize={15} />
             {feature.name}
           </li>
         ))}
@@ -58,10 +71,36 @@ export function PricingCard({ plan }: PricingCardProps) {
   );
 }
 
+interface IconContainerProps {
+  icon: React.ElementType;
+  containerClassName?: string;
+  iconClassName?: string;
+  wrapperSize?: number;
+  iconSize?: number;
+}
+
+const IconContainer = ({
+  icon: Icon,
+  containerClassName = "",
+  iconClassName = "",
+  wrapperSize = 35,
+  iconSize = 10,
+}: IconContainerProps) => (
+  <div
+    className={`rounded-xl flex items-center bg-white/20 border-0 justify-center w-[${wrapperSize}px] h-[${wrapperSize}px] ${containerClassName}`}
+  >
+    <Icon
+      className={` text-gray-300 ${iconClassName}`}
+      width={iconSize}
+      height={iconSize}
+    />
+  </div>
+);
+
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(true);
   const plans = getPricingPlans();
-  
+
   const handleTabChange = (value: string) => {
     setIsYearly(value === "yearly");
   };
@@ -85,14 +124,14 @@ export function Pricing() {
         </div>
 
         <div className="flex justify-center mb-8">
-          <Tabs 
-            defaultValue="yearly" 
-            value={isYearly ? "yearly" : "monthly"} 
+          <Tabs
+            defaultValue="yearly"
+            value={isYearly ? "yearly" : "monthly"}
             onValueChange={handleTabChange}
             className="w-auto"
           >
             <TabsList className="bg-[#1e1e1e] p-1 rounded-primary-sm">
-              <TabsTrigger 
+              <TabsTrigger
                 value="monthly"
                 className="data-[state=active]:bg-action data-[state=active]:text-white text-gray-400 px-4 py-2"
               >
@@ -100,7 +139,7 @@ export function Pricing() {
                   <span>Monthly</span>
                 </div>
               </TabsTrigger>
-              <TabsTrigger 
+              <TabsTrigger
                 value="yearly"
                 className="data-[state=active]:bg-action data-[state=active]:text-white text-gray-400 px-4 py-2"
               >

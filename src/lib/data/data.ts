@@ -1,4 +1,4 @@
-import { Flag, Newspaper, Star } from "lucide-react"
+import { Flag, Layers, Layers2, Layers3, Newspaper, Star } from "lucide-react"
 
 export interface ProcessItem {
     id: string
@@ -16,8 +16,10 @@ export interface ProcessItem {
     Newspaper: Newspaper,
     Star: Star,
     Flag: Flag,
+    Layers: Layers,
+    Layers2: Layers2,
+    Layers3: Layers3,
   };
-
 
   export interface PricingFeature {
     id: string
@@ -32,6 +34,7 @@ export interface ProcessItem {
     pricePrefix?: string
     features: PricingFeature[]
     deliveryTime?: string
+    icon: keyof typeof LucideIcons;
   }
   
   
@@ -118,6 +121,7 @@ export const pricingPlanAnually: PricingPlan[] = [
       { id: '3', name: 'Google Ads setup & basic campaign management.' },
       { id: '4', name: 'Google Ads setup & basic campaign management.' },
     ],
+    icon: 'Layers'
   },
   {
     id: 'multi-page',
@@ -133,6 +137,7 @@ export const pricingPlanAnually: PricingPlan[] = [
       { id: '5', name: 'Googe Ads setup & basic campaign management.' },
       { id: '8', name: 'multiPagePlan.features.support' },
     ],
+    icon: 'Layers2'
   }
 ]
 export const pricingPlanMonthly: PricingPlan[] = [
@@ -147,6 +152,7 @@ export const pricingPlanMonthly: PricingPlan[] = [
       { id: '3', name: 'Google Ads setup & basic campaign management.' },
       { id: '4', name: 'Google Ads setup & basic campaign management.' },
     ],
+    icon: 'Layers'
   },
   {
     id: 'multi-page',
@@ -162,6 +168,7 @@ export const pricingPlanMonthly: PricingPlan[] = [
       { id: '5', name: 'Googe Ads setup & basic campaign management.' },
   
     ],
+    icon: 'Layers2'
   }
 ]
 
