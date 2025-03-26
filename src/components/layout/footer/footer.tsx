@@ -4,14 +4,27 @@ import { footerConfig } from "@/config/footer";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import IconContainer from "@/components/ui/icon-section-container";
 
-const svgIcon = ({width = 35, height = 35 , icon}: {width: number, height: number, icon: string}) => ( 
+const svgIcon = ({
+  width = 35,
+  height = 35,
+  icon,
+}: {
+  width: number;
+  height: number;
+  icon: string;
+}) => (
   <div className=" w-[35px] h-[35px] flex items-center justify-center">
-    <Image src={icon} alt="Threads" className="object-contain " width={width} height={height} />
+    <Image
+      src={icon}
+      alt="Threads"
+      className="object-contain "
+      width={width}
+      height={height}
+    />
   </div>
-
-)
-const xIcon = svgIcon({ icon: '/X.svg', width: 20, height: 20 })
-const threadsIcon = svgIcon({ icon: '/threads.svg', width: 20, height: 20 })
+);
+const xIcon = svgIcon({ icon: "/X.svg", width: 20, height: 20 });
+const threadsIcon = svgIcon({ icon: "/threads.svg", width: 20, height: 20 });
 
 export function Footer() {
   const socialIcons = {
@@ -29,7 +42,7 @@ export function Footer() {
         itemScope
         itemType="https://schema.org/Organization"
       >
-        <div className="max-w-7xl mx-auto px-[20px] md:px-0">
+        <div className="max-w-7xl mx-auto px-[40px] md:px-0">
           <div className="flex flex-col justify-start md:flex-row md:flex-wrap gap-[30px] sm:gap-[30px]  md:gap-[100px]  w-full">
             {/* first row */}
             <div className="flex flex-col  gap-[10px]  ">
@@ -47,7 +60,9 @@ export function Footer() {
                     height={38}
                     className="object-contain"
                   />
-                  <span className="text-[28px] text-white">Exceed Media Pro</span>
+                  <span className="text-[28px] text-white">
+                    Exceed Media Pro
+                  </span>
                 </Link>
               </div>
 
@@ -61,25 +76,48 @@ export function Footer() {
               {/* first column */}
               <div className="flex gap-[10px]">
                 {footerConfig.socialLinks.map((link) => (
-                  <Link href={link.href} key={link.title} className="text-subtitle">
-                    <IconContainer icon={socialIcons[link.icon]} wrapperSize={30} iconSize={20} />
-                  </Link>
-                ))}
-              </div>
-
-              {/* second column */}
-              <div className="flex flex-col gap-[10px]">
-                <h5 className="text-[20px] mb-[10px]">Legal</h5>
-                {footerConfig.pageLinks.map((link) => (
-                  <Link href={link.href} key={link.title}>
-                    {link.title}
+                  <Link
+                    href={link.href}
+                    key={link.title}
+                    className="text-subtitle"
+                  >
+                    <IconContainer
+                      icon={socialIcons[link.icon]}
+                      wrapperSize={30}
+                      iconSize={20}
+                    />
                   </Link>
                 ))}
               </div>
             </div>
 
-         
-         
+            {/* third row */}
+            <div className="flex w-full  gap-[10px]">
+              <div className="flex flex-col gap-[10px] flex-1 ">
+                <h5>Sections</h5>
+                {footerConfig.aboutLinks.map((link) => (
+                  <Link
+                    href={link.href}
+                    key={link.title}
+                    className="text-subtitle text-sm"
+                  >
+                    {link.title}
+                  </Link>
+                ))}
+              </div>
+              <div className="flex flex-col gap-[10px] flex-1">
+                <h5 className="">Pages</h5>
+                {footerConfig.pageLinks.map((link) => (
+                  <Link
+                    href={link.href}
+                    key={link.title}
+                    className="text-subtitle text-sm"
+                  >
+                    {link.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </footer>
