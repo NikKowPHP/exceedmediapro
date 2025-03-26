@@ -1,7 +1,9 @@
+"use client";
 import { Button } from "@/components/ui/button/button";
 import { getPricingPlans, type PricingPlan } from "@/lib/data/data";
 import { MotionButton } from "../ui/motion-button";
 import { IconBadge } from "../ui/icon-badge";
+import { useState } from "react";
 
 interface PricingCardProps {
   plan: PricingPlan;
@@ -58,6 +60,7 @@ export function PricingCard({ plan }: PricingCardProps) {
 
 
 export function Pricing() {
+  const [isYearly, setIsYearly] = useState(true);
   const plans = getPricingPlans();
   return (
     <section
@@ -74,12 +77,22 @@ export function Pricing() {
         <p className="text-center text-lg sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 md:mb-16">
           Scalable Solutions Designed for Every Stage of Your Business Journey
         </p>
-        <div className="flex justify-center">
-          <Button variant="outline">Monthly</Button>
-          <Button variant="outline">Yearly</Button>
+        <div className="flex justify-center gap-2">
+          <Button
+            variant={!isYearly ? "primary" : "outline"}
+            onClick={() => setIsYearly(false)}
+          >
+            Monthly
+          </Button>
+          <Button
+            variant={isYearly ? "primary" : "outline"}
+            onClick={() => setIsYearly(true)}
+          >
+            Yearly
+          </Button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-full mx-auto sm:px-10">
-          {plans.map((plan) => (
+          {plans[isYearly ? "anually" : "monthly"].map((plan) => (
             <PricingCard key={plan.id} plan={plan} />
           ))}
         </div>

@@ -5,6 +5,7 @@ import {
   ServicesSection,
   HowItWorksSection,
   WhyUsSection,
+  Pricing,
 } from "@/helpers/componentsLoad";
 import { companyConfig } from "@/config/company";
 
@@ -22,6 +23,7 @@ export default async function HomePage() {
         <ServicesSection />
         <HowItWorksSection />
         <WhyUsSection />
+        <Pricing />
 
         {/* Deferred Content */}
         <div className="relative">

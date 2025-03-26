@@ -97,3 +97,10 @@ export const WhyUsSection = dynamic(
     ssr: true,
   }
 )
+
+export const Pricing = dynamic(
+  () => import('@/components/sections/pricing').then(mod => mod.Pricing),
+  {
+    ssr: true,
+  }
+)
