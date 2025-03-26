@@ -47,7 +47,7 @@ const ContactSectionTitleSubtitle = () => {
       <div className="flex flex-center items-center">
         <IconBadge
           text="Contact us"
-          textColor="#ffffffb3"
+          textColor="text-subtitle"
           className="text-[14px]"
         />
       </div>
@@ -59,7 +59,7 @@ const ContactSectionTitleSubtitle = () => {
         >
           Apply Now!
         </h2>
-        <p className=" text-[#ffffffb3] text-center">
+        <p className=" text-subtitle text-center">
           Get a <span className="font-bold text-blue-700">FREE audit</span> and{" "}
           <span className="text-blue-700">Google Analytics</span> setup today!
         </p>

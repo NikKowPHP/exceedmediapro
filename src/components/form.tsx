@@ -58,54 +58,49 @@ export const Form = () => {
   };
 
   return (
-    <div className="bg-white rounded-3xl border border-gray-200 p-6 w-full max-w-md mx-auto">
-      <div className="mb-4">
-        <h5 className="text-lg font-semibold text-gray-800">
-          <strong className="text-black">Write us</strong>
-        </h5>
-        <p className="text-gray-600">We'd love to hear from you!</p>
-      </div>
-      <form className="space-y-6 pt-6 text-[16px]" onSubmit={handleSubmit}>
+    <div className=" p-[25px] w-full max-w-md mx-auto">
+    
+      <form className="space-y-6 " onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row gap-[20px]">
           <label className="block md:w-1/2 ">
-            <p className="text-gray-700   mb-2">Name</p>
+            <p className="text-white  mb-2">Name</p>
             <input
               type="text"
               required
               name="Name"
               placeholder="Maks Chamlukov"
-              className=" appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 border-gray-200 leading-tight focus:outline-none focus:border-gray-300"
+              className=" appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 text-gray-700 bg-[#000] leading-tight focus:outline-none focus:border-gray-300"
               value={formData.Name}
               onChange={handleChange}
             />
           </label>
         </div>
         <label className="block">
-          <p className="text-gray-700  mb-2">Email</p>
+          <p className="text-white  mb-2">Email</p>
           <input
             type="email"
             required
             name="Email"
             placeholder="jane@example.com"
-            className=" appearance-none border rounded-lg w-full py-2 px-3 text-subtitle leading-tight focus:outline-none focus:border-gray-300"
+            className=" appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 bg-[#000] text-subtitle leading-tight focus:outline-none focus:border-gray-700"
             value={formData.Email}
             onChange={handleChange}
           />
         </label>
         <label className="block">
-          <p className="text-gray-700  mb-2">Message</p>
+          <p className="text-white  mb-2">Message</p>
           <textarea
             name="Message"
             placeholder="Hi i'm reaching out to you because..."
             required
-            className="appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-300"
+            className="appearance-none border border-borderColor-primary rounded-lg w-full py-2 px-3 bg-[#000] text-subtitle leading-tight min-h-[100px]  focus:outline-none focus:border-gray-300"
             value={formData.Message}
             onChange={handleChange}
           />
         </label>
         <button
           type="submit"
-          className="bg-gray-800 hover:bg-gray-900 rounded-lg text-white w-full py-2 px-4  focus:outline-none focus:border-gray-300"
+          className="bg-action hover:bg-gray-900 rounded-lg  w-full py-2 px-4  focus:outline-none focus:border-gray-300"
         >
           Submit
         </button>
