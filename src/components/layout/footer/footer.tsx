@@ -3,7 +3,6 @@ import Link from "next/link";
 import { footerConfig } from "@/config/footer";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import IconContainer from "@/components/ui/icon-section-container";
-import { SectionBackground } from "@/components/ui/SectionBackground";
 import { FooterBackground } from "@/components/ui/footer-background";
 
 const svgIcon = ({
