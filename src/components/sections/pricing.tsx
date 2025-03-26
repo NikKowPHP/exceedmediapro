@@ -22,7 +22,7 @@ export function PricingCard({ plan }: PricingCardProps) {
       border border-white/10"
       style={{
         backgroundImage:
-          "linear-gradient(149deg, rgba(81, 47, 235, 0.15) 0%, rgba(255, 255, 255, 0.06) 29%, rgba(255, 255, 255, 0.06) 74%, rgba(81, 47, 235, 0.15) 100%);",
+          "linear-gradient(149deg, rgba(81, 47, 235, 0.15) 0%, rgba(255, 255, 255, 0.06) 29%, rgba(255, 255, 255, 0.06) 74%, rgba(81, 47, 235, 0.15) 100%)",
         backgroundRepeat: "repeat",
       }}
       itemScope
