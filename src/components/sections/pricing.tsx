@@ -33,7 +33,7 @@ export function PricingCard({ plan }: PricingCardProps) {
       <div className="flex flex-col gap-[15px]">
         <div className="flex justify-start items-center gap-4">
           <div>
-            <IconContainer icon={Icon} wrapperSize={30} iconSize={15} />
+            <IconContainer icon={Icon} wrapperSize={35} iconSize={15} />
           </div>
           <h3
             className="text-[16px] sm:text-[32px] md:text-[36px] font-medium text-center "
@@ -65,7 +65,7 @@ export function PricingCard({ plan }: PricingCardProps) {
           >
             <div className="flex items-center gap-2">
 
-              <IconContainer icon={Check} wrapperSize={30} iconSize={15} />
+              <IconContainer icon={Check} wrapperSize={35} iconSize={15} />
             </div>
             <span>{feature.name}</span>
           </li>
