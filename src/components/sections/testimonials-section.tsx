@@ -11,36 +11,40 @@ export const TestimonialsSection = () => {
 
   return (
     <>
-      
-        <section
-          id="testimonials"
-          className="pb-[80px] md:pb-[160px] "
-          itemScope
-          itemType="https://schema.org/HowTo"
-          aria-labelledby="process-title"
-        >
-          <div className="max-w-7xl mx-auto  px-[20px] sm:px-0">
-            <TestimonialsTitleSubtitle />
-            <TestimonialsItemList testimonialsItems={testimonialsItems} />
-          </div>
-        </section>
+      <section
+        id="testimonials"
+        className="py-[100px] "
+        itemScope
+        itemType="https://schema.org/HowTo"
+        aria-labelledby="process-title"
+      >
+        <div className="max-w-7xl mx-auto  px-[20px] sm:px-0">
+          <TestimonialsTitleSubtitle />
+          <TestimonialsItemList testimonialsItems={testimonialsItems} />
+        </div>
+      </section>
     </>
   );
 };
 
 const TestimonialsTitleSubtitle = () => {
   return (
-    <header className="mb-[42px] gap-[32px] md:gap-[12px] flex flex-col flex-center items-center">
+    <header className="mb-[60px] gap-[25px]  flex flex-col flex-center items-center">
       <div className="flex flex-center items-center">
-        <IconBadge text="Benefits" textColor="white" />
+        <IconBadge text="Testimonials" textColor="#ffffffb3"  className="text-[14px]" />
       </div>
-      <h2
-        id="process-title"
-        className="text-[28px] md:text-[44px]"
-        itemProp="name"
-      >
-        Why Choose Us?
-      </h2>
+      <div className="flex flex-col items-center justify-center gap-[10px]">
+        <h2
+          id="process-title"
+          className="text-[28px] md:text-[44px] font-[500] text-center"
+          itemProp="name"
+        >
+          Trusted by satisfied clients
+        </h2>
+        <p className="text-sm text-[#ffffffb3] text-center">
+          Discover how we&apos;ve driven growth and innovation.
+        </p>
+      </div>
     </header>
   );
 };

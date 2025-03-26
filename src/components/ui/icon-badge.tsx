@@ -36,7 +36,7 @@ export function IconBadge({
 
       
       <span 
-        className="block text-[16px] leading-[1.1] font-medium tracking-[-0.02em]"
+        className="block text-[14px] leading-[1.1] font-medium tracking-[-0.02em]"
         style={{ color: textColor }}
       >
         {text}
