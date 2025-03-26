@@ -1,10 +1,10 @@
 
-export const SectionBackground = ({topPosition = 600, blur = 50, opacity = 0.7}: {topPosition?: number, blur?: number, opacity?: number}) => {
+export const FooterBackground = ({topPosition = 600, blur = 50, opacity = 0.7}: {topPosition?: number, blur?: number, opacity?: number}) => {
   const bgStyles = {
     flexShrink: 0,
     opacity: opacity,
     backgroundSize: "100% 100%",
-    backgroundImage: "url('/bg-form.svg')",
+    backgroundImage: "url('/footer-bg.svg')",
   };
   const parentBgStyles = {
     WebkitFilter: `blur(${blur}px)`,
@@ -27,4 +27,4 @@ export const SectionBackground = ({topPosition = 600, blur = 50, opacity = 0.7}:
   );
 };
 
-export default SectionBackground;
+export default FooterBackground;

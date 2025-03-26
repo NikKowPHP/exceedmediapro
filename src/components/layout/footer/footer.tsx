@@ -3,6 +3,8 @@ import Link from "next/link";
 import { footerConfig } from "@/config/footer";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import IconContainer from "@/components/ui/icon-section-container";
+import { SectionBackground } from "@/components/ui/SectionBackground";
+import { FooterBackground } from "@/components/ui/footer-background";
 
 const svgIcon = ({
   width = 35,
@@ -43,7 +45,8 @@ export function Footer() {
         itemType="https://schema.org/Organization"
       >
         <div className="max-w-7xl mx-auto px-[40px] md:px-0">
-          <div className="flex flex-col justify-start md:flex-row md:flex-wrap gap-[30px] sm:gap-[30px]  md:gap-[100px]  w-full">
+          <div className="flex flex-col justify-start md:flex-row md:flex-wrap gap-[30px] sm:gap-[30px]  md:gap-[100px]  w-full relative">
+            {/* <FooterBackground  topPosition={300} /> */}
             {/* first row */}
             <div className="flex flex-col  gap-[10px]  ">
               <div className=" relative">
@@ -71,11 +74,13 @@ export function Footer() {
               </div>
             </div>
 
-            {/* second row*/}
+            {/* social row*/}
             <div className="flex md:flex-1 justify-between md:justify-end md:gap-[200px] gap-[20px]">
               {/* first column */}
               <div className="flex gap-[10px]">
                 {footerConfig.socialLinks.map((link) => (
+                  <div className="flex items-center justify-center">
+
                   <Link
                     href={link.href}
                     key={link.title}
@@ -87,6 +92,7 @@ export function Footer() {
                       iconSize={20}
                     />
                   </Link>
+                  </div>
                 ))}
               </div>
             </div>
