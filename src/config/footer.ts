@@ -70,10 +70,10 @@ export const footerConfig = {
       icon: 'Facebook',
     },
     {
-      title: 'ThreadsNet',
+      title: 'Threads',
       href: 'https://www.threads.net/rosemedical',
       isRoute: false,
-      icon: 'ThreadsNet',
+      icon: 'Threads',
     },
   ],
 } as const 

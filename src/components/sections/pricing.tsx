@@ -9,7 +9,7 @@ import { IconBadge } from "../ui/icon-badge";
 import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check } from "lucide-react";
-
+import IconContainer from "../ui/icon-section-container";
 interface PricingCardProps {
   plan: PricingPlan;
 }
@@ -74,32 +74,6 @@ export function PricingCard({ plan }: PricingCardProps) {
     </div>
   );
 }
-
-interface IconContainerProps {
-  icon: React.ElementType;
-  containerClassName?: string;
-  iconClassName?: string;
-  wrapperSize?: number;
-  iconSize?: number;
-}
-
-const IconContainer = ({
-  icon: Icon,
-  containerClassName = "",
-  iconClassName = "",
-  wrapperSize = 35,
-  iconSize = 10,
-}: IconContainerProps) => (
-  <div
-    className={`rounded-xl flex items-center bg-white/20 border-0 justify-center w-[${wrapperSize}px] h-[${wrapperSize}px] ${containerClassName}`}
-  >
-    <Icon
-      className={` text-gray-300 ${iconClassName}`}
-      width={iconSize}
-      height={iconSize}
-    />
-  </div>
-);
 
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(true);

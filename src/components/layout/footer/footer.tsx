@@ -1,56 +1,68 @@
 import Image from "next/image";
 import Link from "next/link";
 import { footerConfig } from "@/config/footer";
-import { Instagram } from "lucide-react";
-import { XIcon } from "@/components/svg/twitter.svg";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
+import IconContainer from "@/components/ui/icon-section-container";
 
+const svgIcon = ({width = 35, height = 35 , icon}: {width: number, height: number, icon: string}) => ( 
+  <div className=" w-[35px] h-[35px] flex items-center justify-center">
+    <Image src={icon} alt="Threads" className="object-contain " width={width} height={height} />
+  </div>
+
+)
+const xIcon = svgIcon({ icon: '/X.svg', width: 20, height: 20 })
+const threadsIcon = svgIcon({ icon: '/threads.svg', width: 20, height: 20 })
 
 export function Footer() {
   const socialIcons = {
-    X: XIcon,
+    X: xIcon,
     Instagram: Instagram,
+    LinkedIn: Linkedin,
+    Facebook: Facebook,
+    Threads: threadsIcon,
   };
 
   return (
     <>
       <footer
-        className="bg-[#014441] w-full py-12 md:py-[80px]  text-white text-base md:text-[16px]"
+        className=" w-full py-12 md:py-[80px] border-t-2 border-white/10 text-white text-base md:text-[16px]"
         itemScope
         itemType="https://schema.org/Organization"
       >
         <div className="max-w-7xl mx-auto px-[20px] md:px-0">
           <div className="flex flex-col justify-start md:flex-row md:flex-wrap gap-[30px] sm:gap-[30px]  md:gap-[100px]  w-full">
             {/* first row */}
-            <div className="flex gap-[20px] items-center md:items-start">
-              <div className="w-[110px] h-[28px] relative">
+            <div className="flex flex-col  gap-[10px]  ">
+              <div className=" relative">
                 <Link
                   href="/"
-                  className="relative block w-full h-full"
-                  title="Rose Medical"
-                  aria-label="Rose Medical Homepage"
+                  className="relative  w-full h-full flex items-center gap-[10px]"
+                  title="Exceed Media Pro"
+                  aria-label="Exceed Media Pro Homepage"
                 >
                   <Image
-                    src="/logo-white.avif"
-                    alt="Rose Medical Logo"
-                    fill
+                    src="/logo.png"
+                    alt="Exceed Media Pro Logo"
+                    width={38}
+                    height={38}
                     className="object-contain"
                   />
+                  <span className="text-[28px] text-white">Exceed Media Pro</span>
                 </Link>
               </div>
-              <span className="text-base border-r border-gray-200 h-[28px]"></span>
-              <div className="text-base ">
-                Disposable Endoscopic Accessories
+
+              <div className="text-subtitle">
+                Your Reliable Partner for Marketing Success
               </div>
             </div>
 
             {/* second row*/}
             <div className="flex md:flex-1 justify-between md:justify-end md:gap-[200px] gap-[20px]">
               {/* first column */}
-              <div className="flex flex-col gap-[10px]">
-                <h5 className="text-[20px] mb-[10px]">Company</h5>
-                {footerConfig.aboutLinks.map((link) => (
-                  <Link href={link.href} key={link.title}>
-                    {link.title}
+              <div className="flex gap-[10px]">
+                {footerConfig.socialLinks.map((link) => (
+                  <Link href={link.href} key={link.title} className="text-subtitle">
+                    <IconContainer icon={socialIcons[link.icon]} wrapperSize={30} iconSize={20} />
                   </Link>
                 ))}
               </div>
@@ -66,34 +78,8 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row md:justify-between md:flex-wrap gap-[20px] md:gap-[10px]">
-              {/* third row */}
-              <p className="text-base">
-                RoseMed is your trusted source for Alton (Shanghai) Medical
-                Instruments Co., Ltd.'s comprehensive range of disposable
-                endoscopic accessories.
-              </p>
-
-              {/* fifth row | social media */}
-              <div className="flex gap-[10px] items-center justify-end order-2  md:order-none">
-                <span>@rosemedical</span>
-                {footerConfig.socialLinks.map((link) => {
-                  // Get the proper icon component based on the icon property
-                  const Icon =
-                    socialIcons[link.icon as keyof typeof socialIcons];
-                  return (
-                    <Link href={link.href} key={link.title}>
-                      <Icon className="w-[30px] h-[30px]" />
-                    </Link>
-                  );
-                })}
-              </div>
-
-              {/* fourth row | copyright */}
-              <p className="text-base order-1 md:order-none pb-5 md:pb-0 ">
-                © {new Date().getFullYear()}. All rights reserved. Rose Medical.{" "}
-              </p>
-            </div>
+         
+         
           </div>
         </div>
       </footer>

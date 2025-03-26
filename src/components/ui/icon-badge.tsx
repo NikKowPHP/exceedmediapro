@@ -8,6 +8,7 @@ type IconBadgeProps = {
   textColor?: string
   className?: string
   iconSize?: number
+  icon?: string
 }
 
 export function IconBadge({
@@ -15,9 +16,9 @@ export function IconBadge({
   bgColor = '#0d0d0d',
   textColor = 'text-subtitle',
   className = '',
-  iconSize = 15
+  iconSize = 15,
+  icon = '/logo.png'
 }: IconBadgeProps) {
-
 
 
   return (
@@ -27,7 +28,7 @@ export function IconBadge({
     >
 
       <Image
-        src="/logo.png"
+        src={icon}
         alt="Exceed Media Pro Logo"
         width={iconSize}
         height={iconSize}

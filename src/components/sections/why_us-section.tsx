@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { getWhyUsItems, WhyUsItem as WhyUsItemType } from "@/lib/data/data";
 import { LucideIcons } from "@/lib/data/data";
 import { IconBadge } from "../ui/icon-badge";
+import IconContainer from "../ui/icon-section-container";
 
 export const WhyUsSection = () => {
   const whyUsItems = getWhyUsItems();
@@ -78,9 +79,7 @@ const WhyUsItem = ({ index, item }: { index: number; item: WhyUsItemType }) => {
     >
       <meta itemProp="position" content={`${index + 1}`} />
       <div className="flex flex-col gap-[20px] ">
-        <div className="rounded-xl   flex items-center bg-white/10 border-0 justify-center w-[35px] h-[35px]">
-          <Icon className="w-[20px] h-[20px] text-gray-300" />
-        </div>
+        <IconContainer icon={Icon} wrapperSize={35} iconSize={20} />
 
         <div className="flex flex-col gap-[16px]">
           <h3 className="text-[20px] md:text-[28px] font-bold " itemProp="name">
