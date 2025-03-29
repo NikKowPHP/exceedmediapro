@@ -129,7 +129,7 @@ export const HeroSection = () => {
            
           </motion.div>
 
-          <RunningTags services={services} />
+          <RunningTags services={services} speed={50} />
         </motion.div>
       </div>
       <div className="opacity-0 animate-fadeIn"></div>

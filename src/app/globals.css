@@ -35,3 +35,50 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation-name: scroll;
+  /* Default play state, duration set by JS */
+   animation-play-state: running; /* Start running */
+}
+.pause {
+  animation-play-state: paused !important;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+.group.overflow-hidden {
+  position: relative;
+}
+.group.overflow-hidden::before,
+.group.overflow-hidden::after {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute; /* Position relative to the container */
+  top: 0;
+  bottom: 0;
+  z-index: 2; /* Sit above the scrolling content */
+  width: 100px; /* Adjust width of the fade effect */
+  pointer-events: none; /* Allow clicks/hovers to pass through */
+}
+.group.overflow-hidden::before {
+  left: 0;
+  /* Fade from black (container bg) to transparent */
+  background: linear-gradient(to right, rgb(0 0 0 / 1), rgb(0 0 0 / 0));
+}
+
+.group.overflow-hidden::after {
+  right: 0;
+  /* Fade from transparent to black (container bg) */
+  background: linear-gradient(to left, rgb(0 0 0 / 1), rgb(0 0 0 / 0));
+}
