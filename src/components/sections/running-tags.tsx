@@ -13,7 +13,10 @@ interface RunningTagsProps {
 // Default speed: 50 pixels per second
 const DEFAULT_SPEED_PX_PER_SEC = 50;
 
-export function RunningTags({ services, speed = DEFAULT_SPEED_PX_PER_SEC }: RunningTagsProps) {
+export function RunningTags({
+  services,
+  speed = DEFAULT_SPEED_PX_PER_SEC,
+}: RunningTagsProps) {
   // Keep duplicated services in state for React to manage rendering
   const [duplicatedServices, setDuplicatedServices] = useState<Service[]>([]);
   const containerRef = useRef<HTMLDivElement>(null); // The outer overflow hidden container
@@ -39,15 +42,13 @@ export function RunningTags({ services, speed = DEFAULT_SPEED_PX_PER_SEC }: Runn
       // Apply the duration directly via style - ensures it updates correctly
       // Use seconds for CSS animation-duration
       contentWrapperRef.current.style.animationDuration = `${durationInSeconds}s`;
-       // Ensure animation is running (it might be paused by default or from hover)
-      contentWrapperRef.current.style.animationPlayState = 'running';
+      // Ensure animation is running (it might be paused by default or from hover)
+      contentWrapperRef.current.style.animationPlayState = "running";
     } else {
-       // If width is 0 or speed is 0, stop the animation
-       contentWrapperRef.current.style.animationDuration = '0s';
-       contentWrapperRef.current.style.animationPlayState = 'paused';
+      // If width is 0 or speed is 0, stop the animation
+      contentWrapperRef.current.style.animationDuration = "0s";
+      contentWrapperRef.current.style.animationPlayState = "paused";
     }
-
-
   }, [speed]); // Depend only on speed
 
   useEffect(() => {
@@ -55,19 +56,18 @@ export function RunningTags({ services, speed = DEFAULT_SPEED_PX_PER_SEC }: Runn
     // We need a slight delay or wait for the next frame to ensure layout is complete
     let animationFrameId: number;
     const runCalculation = () => {
-        // Use requestAnimationFrame to wait for the browser to be ready for layout calculation
-        animationFrameId = requestAnimationFrame(calculateAndSetAnimation);
-    }
+      // Use requestAnimationFrame to wait for the browser to be ready for layout calculation
+      animationFrameId = requestAnimationFrame(calculateAndSetAnimation);
+    };
     // Run calculation after the duplicated services are set and rendered
     if (duplicatedServices.length > 0) {
-        runCalculation();
+      runCalculation();
     }
-
 
     // More robust resize handling using ResizeObserver
     const observer = new ResizeObserver(() => {
       // Recalculate on resize of the content wrapper itself
-       runCalculation();
+      runCalculation();
     });
 
     // Observe the container - if its size changes, content width might change
@@ -75,10 +75,9 @@ export function RunningTags({ services, speed = DEFAULT_SPEED_PX_PER_SEC }: Runn
       observer.observe(containerRef.current);
     }
     // Also observe the content wrapper itself in case its internal size changes
-     if (contentWrapperRef.current) {
+    if (contentWrapperRef.current) {
       observer.observe(contentWrapperRef.current);
     }
-
 
     return () => {
       cancelAnimationFrame(animationFrameId); // Clean up animation frame
@@ -87,7 +86,6 @@ export function RunningTags({ services, speed = DEFAULT_SPEED_PX_PER_SEC }: Runn
     };
     // Rerun effect if calculation function or the content itself changes
   }, [calculateAndSetAnimation, duplicatedServices]); // Add duplicatedServices dependency
-
 
   return (
     // Outer container to clip the overflow and provide hover context
@@ -120,7 +118,10 @@ export function RunningTags({ services, speed = DEFAULT_SPEED_PX_PER_SEC }: Runn
             itemScope
             itemType="https://schema.org/Service"
           >
-            <meta itemProp="position" content={String(index % services.length + 1)} />
+            <meta
+              itemProp="position"
+              content={String((index % services.length) + 1)}
+            />
             <span itemProp="name">{service.name}</span>
           </span>
         ))}
